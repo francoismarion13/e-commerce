@@ -5,6 +5,6 @@ export const environment = {
   const host = 'http://localhost:8080/'
   
   export const apiUrl = {
-    users: host + 'users',
-    posts:  host + 'users/add'
+    categorys: host + 'categorys',
+    products:  host + 'products'
   };
