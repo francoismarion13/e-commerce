@@ -1,4 +1,4 @@
-import { Prduct } from './classes/produit';
+import { Product } from './classes/produit';
 import { Category } from './classes/category';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +15,7 @@ import { FirstComponent } from './first/first.component';
     BrowserModule
   ],
   providers: [
-    Prduct,
+    Product,
     Category
   ],
   bootstrap: [AppComponent]
