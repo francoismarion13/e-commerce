@@ -2,4 +2,28 @@
 <h1>categories</h1>
 <app-menu></app-menu>
 <h1>produits</h1>
-{{products |json}}
+
+
+<table class="table table-striped">  
+    <tbody>
+<div *ngFor="let product of products">
+    <tr>
+        <td> {{product.name}}</td>
+    </tr>
+    <tr>
+        <td> {{product.price}}</td>
+    </tr>
+    <tr>
+        <td> {{product.size}}</td>
+    </tr>
+    <tr>
+        <td> {{product.marque}}</td>
+    </tr>
+    <tr>
+        <td> {{product.qte}}</td>
+    </tr>
+    -----------------------------------
+</div>
+
+</tbody> 
+</table>

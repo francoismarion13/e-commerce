@@ -8,12 +8,16 @@ import { ProductService } from '../services/product.service';
 })
 export class HomeComponent implements OnInit {
   products;
+  productsHome;
 
   constructor(private pS: ProductService) { }
 
   ngOnInit() {
     console.log("gere");
     this.pS.getProduct().subscribe(data => {this.products = data; });
+    
+    this.pS.getProductHome().subscribe(data => {this.productsHome = data; });
+
   }
 
 }

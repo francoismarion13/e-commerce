@@ -14,4 +14,8 @@ export class ProductService {
   getProduct(){
     return this.http.get(apiUrl.products);
   }
+
+  getProductHome(){
+    return this.http.get(apiUrl.home);
+  }
 }

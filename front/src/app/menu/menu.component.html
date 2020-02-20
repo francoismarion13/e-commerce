@@ -1,2 +1,11 @@
-<p>menu works!</p>
-{{categorys | json}}
+
+<table class="table table-striped">  
+    <tbody>
+<div *ngFor="let category of categorys">
+    <tr>
+        <td> {{category.name}}</td>
+    </tr>
+</div>
+
+</tbody> 
+</table>
