@@ -7,16 +7,16 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  category;
+  categorys;
 
   constructor(private cS: CategoryService) { }
 
  
 
   ngOnInit() {
-   this.cS.getCategory().subscribe(data => {
-      this.category = data; 
-  })
+  
+
+  this.cS.getCategory().subscribe(data => {this.categorys = data; });
 
   }
 }
