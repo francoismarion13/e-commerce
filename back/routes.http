@@ -12,3 +12,6 @@ GET http://localhost:8080/categories
 ################################
 GET http://localhost:8080/categories/5e4e598db07d2c4c1da1e39a
 ################################
+################################
+GET http://localhost:8080/categories/5e4e598db07d2c4c1da1e39a
+################################
