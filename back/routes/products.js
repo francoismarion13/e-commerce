@@ -2,9 +2,25 @@ const router = require('express').Router();
 const products = require('../models/product');
 const url = require('url')
 
+	
+ 
+
+router.get('/:id', async function(req,res){ 
+    try {
+        let product = await products.findOne({ _id: req.params.id });
+        res.json(product);
+      } catch (err) { throw err; }
+    })
+
+router.put('/:id', async function(req,res){ 
+	  res.json({message : "Vous souhaitez modifier les informations du produits n°" + req.params.id});
+})
+router.delete('/:id', async function(req,res){ 
+	  res.json({message : "Vous souhaitez supprimer du produits n°" + req.params.id});
+});
 // Get all /users
-router.get('/', async (req, res) => {
-    console.log("home products")
+// router.get('/', async (req, res) => {
+//     console.log("home products")
 //   try {
 //     let products;
 //     let query = {}
@@ -21,7 +37,7 @@ router.get('/', async (req, res) => {
 
 //     res.json(products);
 //   } catch (err) { throw err }
-})
+
 // Get one /users/:id
 // router.get('/:id', async (req, res) => {
 //   try {
