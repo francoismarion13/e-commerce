@@ -8,3 +8,5 @@ export const environment = {
     users: host + 'users',
     posts:  host + 'users/add'
   };
+
+  //Prévoir la gestion de toto
