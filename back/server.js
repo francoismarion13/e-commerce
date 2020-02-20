@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const productRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
-const homeRouter = require('./routes/products');
+const homeRouter = require('./routes/home');
 
 var app = express();
 //middleware/config server

@@ -1,15 +1,14 @@
 const router = require('express').Router();
-const home = require('../models/home');
+const product = require('../models/product');
 const url = require('url');
 const jsonParser = require('body-parser').json();
 
-//dff
+
 router.get('/', async (req, res) => {
     try {
-        homeList = await products.find().limit(12);
+        homeList = await product.find().limit(12);
         res.json(homeList);
     } catch (err) { throw err }
   })
  
-
-
+  module.exports = router;
