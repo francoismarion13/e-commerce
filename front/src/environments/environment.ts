@@ -7,5 +7,6 @@ export const environment = {
   export const apiUrl = {
     home: host + '',
     categorys: host + 'categories',
-    products:  host + 'products'
+    products:  host + 'products',
+    cart: host + 'cart'
   };

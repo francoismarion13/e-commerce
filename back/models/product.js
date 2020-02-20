@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const userSchema = new mongoose.Schema({
+
+const productSchema = new mongoose.Schema({
     name: {type :String, required : true},
     ean13:{type :Number, required : true},
     description_short: {type :String, required : true},
@@ -16,7 +17,5 @@ const userSchema = new mongoose.Schema({
     id_categorie: {type : Number, requirede: true}
 });
 
-var Products = mongoose.model('Product', userSchema);
+var Products = mongoose.model('Product', productSchema);
 module.exports = Products;
-
-

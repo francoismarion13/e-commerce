@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
