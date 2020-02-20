@@ -1,0 +1,14 @@
+GET http://localhost:8080/products
+################################
+GET http://localhost:8080/products/5e4d49d80a3d603d6e4fdcdd
+################################
+PATCH http://localhost:8080/products/5e4d49d80a3d603d6e4fdcfe
+################################
+DELETE http://localhost:8080/products/5e4d49d80a3d603d6e4fdcfe
+################################
+POST http://localhost:8080/products/add
+################################
+GET http://localhost:8080/categories
+################################
+GET http://localhost:8080/categories/5e4e598db07d2c4c1da1e39a
+################################
