@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../classes/produit';
+import { Product } from 'src/app/classes/product';
 import { apiUrl } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -8,5 +9,9 @@ import { apiUrl } from 'src/environments/environment';
 })
 export class ProductService {
 
-  constructor(private Product:Product) { }
+  constructor(private Product:Product, private http: HttpClient) { }
+
+  getProduct(){
+    return this.http.get(apiUrl.products);
+  }
 }

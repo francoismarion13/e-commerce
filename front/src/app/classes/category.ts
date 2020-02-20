@@ -2,6 +2,21 @@ export class Category {
 
     
     private _id_category : number;
+    private _name : string;
+    private _description_short : string;
+
+    constructor(
+        id_category : number = 0,
+        name : string = "",
+        description_short : string = ""
+    ){
+        this._id_category = id_category;
+        this._name = name;
+        this._description_short = description_short;
+
+    }
+
+
     public get id_category() : number {
         return this._id_category;
     }
@@ -10,7 +25,7 @@ export class Category {
     }
 
     
-    private _name : string;
+    
     public get name() : string {
         return this._name;
     }
@@ -19,14 +34,22 @@ export class Category {
     }
 
     
-    private _description : string;
+    
     public get description() : string {
-        return this._description;
+        return this._description_short;
     }
     public set description(v : string) {
-        this._description = v;
+        this._description_short = v;
     }
     
     
+  /*   private _products : string;
+    public get products() : string {
+        return this._products;
+    }
+    public set products(v : string) {
+        this._products = v;
+    }
+     */
     
 }
