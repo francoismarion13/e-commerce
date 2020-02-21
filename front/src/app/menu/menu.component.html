@@ -7,7 +7,11 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarColor02">
-      
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="shoppingCart"> Mon panier</a>
+        </li>
+      </ul>
       <ul class="navbar-nav mr-auto" *ngFor="let category of categorys">
         <li class="nav-item active">
             <a class="nav-link" href="#"> {{category.name}}</a>
