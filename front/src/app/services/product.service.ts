@@ -18,4 +18,9 @@ export class ProductService {
   getProductHome(){
     return this.http.get(apiUrl.home);
   }
+
+  getProductById(id){
+    return this.http.get(apiUrl.products+'/'+id);
+    
+  }
 }
