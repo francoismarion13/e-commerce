@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   products;
   productsHome;
   categorys;
+  id;
 
   constructor(private pS: ProductService, private cS: CategoryService) { }
 

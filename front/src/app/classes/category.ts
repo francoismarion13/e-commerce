@@ -4,15 +4,18 @@ export class Category {
     private _id_category : number;
     private _name : string;
     private _description_short : string;
+    private _id_produit : string[];
 
     constructor(
         id_category : number = 0,
         name : string = "",
-        description_short : string = ""
+        description_short : string = "",
+        id_produit : string[] = []
     ){
         this._id_category = id_category;
         this._name = name;
         this._description_short = description_short;
+        this._id_produit = id_produit;
 
     }
 
@@ -41,6 +44,16 @@ export class Category {
     public set description(v : string) {
         this._description_short = v;
     }
+
+    
+    
+    public get id_produit() : string[] {
+        return this._id_produit;
+    }
+    public set id_produit(v : string[]) {
+        this._id_produit = v;
+    }
+    
     
     
   /*   private _products : string;
