@@ -1,1 +1,11 @@
-<p>shopping-cart works!</p>
+<app-menu></app-menu>
+<h1>My shopping cart :</h1>
+<div *ngFor="let product of myCart?.products">
+    <p>
+        {{product.img}}
+        <strong>Nom du produit </strong>{{product.name}}
+        <strong>Quantité </strong>{{product.qte}}
+        <strong>Prix total </strong>{{product.price}}
+    </p>
+</div>
+<strong>Code promo : </strong>{{myCart?.promo_code}}
