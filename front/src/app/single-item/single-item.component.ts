@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router, ParamMap, ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-item.component.css']
 })
 export class SingleItemComponent implements OnInit {
-  id;
+  @Input()id;
   product;
 
   constructor(private Ps:ProductService,
