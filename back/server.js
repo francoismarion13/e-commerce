@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const homeRouter = require('./routes/home');
 const productRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
-const cartsRouter = require('./routes/carts');
+const cartsRouter = require('./routes/shoppingCart');
 
 var app = express();
 //middleware/config server
@@ -17,7 +17,7 @@ app.use(cors())
 
 app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
-app.use("/carts", cartsRouter);
+app.use("/shoppingCart", cartsRouter);
 app.use("/", homeRouter); 
 
 //connexion
