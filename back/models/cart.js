@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-    id_user: { Type: Number, required: true },
-    isValidate: { Type: Boolean, default: false },
+    id_user: { type: Number, required: true },
+    isValidate: { type: Boolean, default: false },
     products: { type: [{
-        _id: { Type: Number, required: true },
-        name: { Type: String, required: true },
-        qte: { Type: Number, required: true },
-        price: { Type: Number, required: true },
-        tax: { Type: Number, required: true }
+        _id: { type: Number, required: true },
+        name: { type: String, required: true },
+        qte: { type: Number, required: true },
+        price: { type: Number, required: true },
+        tax: { type: Number, required: true }
     }], required: true },
     total_price: Number,
     promo_code: Number
