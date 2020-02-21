@@ -7,6 +7,7 @@ export class Customer {
     private _email : string;
     private _passwd : string;
     private _birthday : string;
+    private _adresses : string[];
 
     constructor(
         id_customer : number = 0,
@@ -14,7 +15,8 @@ export class Customer {
         lastname : string = "",
         email : string = "",
         passwd : string = "",
-        birthday : string = ""
+        birthday : string = "",
+        adresses : string[] = []
     ){
         this._id_customer = id_customer;
         this._firstname = firstname;
@@ -22,8 +24,9 @@ export class Customer {
         this._email = email;
         this._passwd = passwd;
         this._birthday = birthday;
+        this._adresses = adresses;
     }
-
+    
 
 
     public get id_customer() : number {
@@ -76,6 +79,13 @@ export class Customer {
     }
     public set birthday(v : string) {
         this._birthday = v;
+    }
+
+    public get adresses() : string[] {
+        return this._adresses;
+    }
+    public set adresses(v : string[]) {
+        this._adresses = v;
     }
     
     
