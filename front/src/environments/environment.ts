@@ -8,5 +8,5 @@ export const environment = {
     home: host + '',
     categorys: host + 'categories',
     products:  host + 'products',
-    cart: host + 'cart'
+    shoppingCart: host + 'shoppingCart'
   };
