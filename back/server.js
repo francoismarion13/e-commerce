@@ -8,6 +8,8 @@ const homeRouter = require('./routes/home');
 const productRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
 
+//images
+// app.use('/assets', express.static('public'));
 var app = express();
 //middleware/config server
 app.use(express.json());
