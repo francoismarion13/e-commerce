@@ -23,7 +23,7 @@ GET http://localhost:8080/
 /////////////////////////////////////////////////////////////
 ////////////////ROUTES SHOPPINGCARTS/////////////////////////
 /////////////////////////////////////////////////////////////
-GET http://localhost:8080/shoppingCarts
+GET http://localhost:8080/shoppingCart
 ################################
-GET http://localhost:8080/shoppingCarts/5e4f9e60e66c951821123cfd
+GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df7
 ################################

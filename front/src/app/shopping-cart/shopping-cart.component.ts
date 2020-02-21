@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ShoppingCartComponent implements OnInit {
-
+  totalPriceCart
   myCart;
   id;
 
@@ -20,7 +20,11 @@ export class ShoppingCartComponent implements OnInit {
       this.id = params.get('id') ? params.get('id') : '5e4f9e60e66c951821123cfe'
       this.scS.getCartById(this.id).subscribe(data=>{
         this.myCart = this.scS.calculateTotalPrice(data);
+        this.totalPrice(this.myCart )
       })
     });
+  }
+  totalPrice(cart){
+   this.totalPriceCart = this.scS.getCalculateTotal(cart);
   }
 }

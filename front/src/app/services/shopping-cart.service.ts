@@ -23,4 +23,12 @@ export class ShoppingCartService {
   validateCart(){
     //return this.http.updateOne(apiUrl.cart);
   }
+  getCalculateTotal(cart){
+    let sommeTotal= 0;
+    cart.products.forEach((product)=>{
+      sommeTotal += product.price
+   })
+   return sommeTotal;
+  }
+
 }
