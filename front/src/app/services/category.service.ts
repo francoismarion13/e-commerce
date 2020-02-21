@@ -13,6 +13,10 @@ export class CategoryService {
     return this.http.get(apiUrl.categorys);
   }
 
+  getCategoryById(id){
+    return this.http.get(apiUrl.categorys + '/' + id);
+  }
+
 }
 
 
