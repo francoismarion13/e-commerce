@@ -1,20 +1,22 @@
-<app-menu></app-menu>
+
 
  <!-- Page Content -->
  <div class="container">
-
+    <app-menu></app-menu>
     <div class="row">
 
       <div class="col-lg-3">
         <h1 class="my-4">Categories</h1>
         <div class="list-group" *ngFor="let category of categorys">
-          <a href="#" class="list-group-item">{{category.name}}</a>
+          <a  routerLink="category/{{category._id}}" class="list-group-item">{{category.name}}</a>
         </div>
+
 
       </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
+          
         <br />
         <div class="row">
            
