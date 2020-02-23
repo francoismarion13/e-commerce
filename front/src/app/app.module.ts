@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SingleItemComponent } from './single-item/single-item.component';
 import { FicheCategoryComponent } from './fiche-category/fiche-category.component';
-
+import { UserCreateComponent } from './user-create/user-create.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,16 @@ import { FicheCategoryComponent } from './fiche-category/fiche-category.componen
     HeaderComponent,
     FooterComponent,
     SingleItemComponent,
-    FicheCategoryComponent
+    FicheCategoryComponent,
+    UserCreateComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     Product,
@@ -39,4 +44,5 @@ import { FicheCategoryComponent } from './fiche-category/fiche-category.componen
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

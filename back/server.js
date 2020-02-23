@@ -8,6 +8,7 @@ const homeRouter = require('./routes/home');
 const productRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
 const cartsRouter = require('./routes/shoppingCart');
+const usersRouter = require('./routes/users');
 
 var app = express();
 //middleware/config server
@@ -18,6 +19,7 @@ app.use(cors())
 app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/shoppingCart", cartsRouter);
+app.use("/users", usersRouter);
 app.use("/", homeRouter); 
 
 //connexion

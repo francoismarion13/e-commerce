@@ -11,6 +11,7 @@ DELETE http://localhost:8080/products/5e4d49d80a3d603d6e4fdcfe
 ################################
 POST http://localhost:8080/products/add
 ################################
+
 /////////////////////////////////////////////////////////////
 //////////////////////ROUTES CATEGORIES//////////////////////
 /////////////////////////////////////////////////////////////
@@ -20,10 +21,41 @@ GET http://localhost:8080/categories/5e4e598db07d2c4c1da1e39a
 ################################
 GET http://localhost:8080/
 ################################
+
 /////////////////////////////////////////////////////////////
 ////////////////ROUTES SHOPPINGCARTS/////////////////////////
 /////////////////////////////////////////////////////////////
 GET http://localhost:8080/shoppingCart
 ################################
 GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df7
+################################
+
+/////////////////////////////////////////////////////////////
+///////////////////////ROUTES USERS//////////////////////////
+/////////////////////////////////////////////////////////////
+GET http://localhost:8080/users
+################################
+GET http://localhost:8080/users/5e523a0aa934b42de0eb5c66
+################################
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "gender": "Monsieur",
+    "lastname": "François",
+    "firstname": "MARION",
+    "dateOfBirth": "31/12/1987",
+    "username": "francoisdevtest",
+    "password": "francois13",
+    "email": "johnwick@gmail.com",
+    "phone": "",
+    "cards": [
+        { "cardNumber": "323242535837468364", "cardUserName": "MR MARION FRANCOIS", "cardDate": "13/01/2022", "cardSecretVerif": "743" },
+        { "cardNumber": "323242535837469878", "cardUserName": "MR MARION FRANCOIS", "cardDate": "13/01/2021", "cardSecretVerif": "325" }
+    ],
+    "adresses": [
+        { "adresse1": "23 rue des lilas", "adresse2": null, "codePostal": "21210", "ville": "SAULIEU" },
+        { "adresse1": "55 avenue du général de gaulle", "adresse2": "chemin bis", "codePostal": "13100", "ville": "AIX EN PROVENCE" }
+    ]
+}
 ################################

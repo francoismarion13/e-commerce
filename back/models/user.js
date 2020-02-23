@@ -4,14 +4,16 @@ const userSchema = new mongoose.Schema({
     gender: { type: String, required: true, enum: ['Madame','Monsieur'] },
     lastname: { type: String, required : true },
     firstname: { type: String, required : true },
+    dateOfBirth: { type: String, required: true },
+    username: { type: String, required: true },
     password: { type: String, required: true },
     email: { type: String, required: true },
-    phone: { type: Number },
+    phone: { type: String },
     cards: { type: [{
-        cardNumber: { type: Number, required: true },
+        cardNumber: { type: String, required: true },
         cardUserName: { type: String, required: true },
         cardDate: { type: String, required: true },
-        cardSecretVerif: { type: Number, required: true }
+        cardSecretVerif: { type: String, required: true }
     }]},
     adresses: { type: [{
        adresse1: { type: String, required: true },
@@ -21,5 +23,5 @@ const userSchema = new mongoose.Schema({
     }]}
 });
 
-var User = mongoose.model('Categorie', userSchema);
+var User = mongoose.model('User', userSchema);
 module.exports = User;
