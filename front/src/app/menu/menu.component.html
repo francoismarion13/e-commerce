@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" routerLink="">Nome</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +10,20 @@
           <a class="nav-link" routerLink="/shoppingCart"> Mon panier</a>
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto" *ngFor="let category of categorys">
+      <ul class="navbar-nav mr-auto" *ngFor="let category of categories">
         <li class="nav-item active">
             <a class="nav-link" routerLink="/category/{{category._id}}"> {{category.name}}</a>
         </li>
       </ul>
     </div>
+    <div  class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/userCreate">Créer un user</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/userProfile/{{activeUser}}">Mon compte</a>
+        </li>
+      </ul>
+    </div>
   </nav>
-
-
-

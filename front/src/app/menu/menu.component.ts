@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { activeUser } from './../../environments/environment'
 
 @Component({
   selector: 'app-menu',
@@ -7,16 +8,14 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  categorys;
+
+  categories;
+  activeUser;
 
   constructor(private cS: CategoryService) { }
 
- 
-
   ngOnInit() {
-  
-
-  this.cS.getCategory().subscribe(data => {this.categorys = data; });
-
+    this.cS.getCategory().subscribe(data => {this.categories = data; });
+    this.activeUser = activeUser;
   }
 }
