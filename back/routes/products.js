@@ -21,6 +21,36 @@ router.get('/', async (req, res) => {
       res.json(productList);
     } catch (err) { throw err }
   })
+
+
+  // get sort alphabetically
+  router.get('/sort', async function(req,res){ 
+    try {
+        let product = await products.find({}, null, {sort: {name: 1}}, function(err, prods){
+          if(err){
+            console.log(err);
+            process.exit(1);
+          }
+          console.log(prods);
+        });
+        res.json(product);
+      } catch (err) { throw err; }
+    })
+
+
+      // get sort price
+  router.get('/sortPrice', async function(req,res){ 
+    try {
+        let product = await products.find({}, null, {sort: {price: 1}}, function(err, prods){
+          if(err){
+            console.log(err);
+            process.exit(1);
+          }
+          console.log(prods);
+        });
+        res.json(product);
+      } catch (err) { throw err; }
+    })
  
 
 router.get('/:id', async function(req,res){ 

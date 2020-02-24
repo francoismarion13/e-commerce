@@ -23,4 +23,12 @@ export class ProductService {
     return this.http.get(apiUrl.products+'/'+id);
     
   }
+
+  getSortedProducts(){
+    return this.http.get(apiUrl.sortAlphabetically);
+  }
+
+  getSortedProductsByPrice(){
+    return this.http.get(apiUrl.sortPrice);
+  }
 }

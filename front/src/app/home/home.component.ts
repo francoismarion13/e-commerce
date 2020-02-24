@@ -12,11 +12,14 @@ export class HomeComponent implements OnInit {
   productsHome;
   categorys;
   id;
+  SortedProducts;
+  sortAlphabetically : boolean=false;
+  sortPrice : boolean=false;
 
   constructor(private pS: ProductService, private cS: CategoryService) { }
 
   ngOnInit() {
-    console.log("gere");
+    //console.log("gere");
     this.pS.getProduct().subscribe(data => {this.products = data; });
     
     this.pS.getProductHome().subscribe(data => {this.productsHome = data; });
@@ -24,5 +27,6 @@ export class HomeComponent implements OnInit {
     this.cS.getCategory().subscribe(data => {this.categorys = data; });
 
   }
+
 
 }
