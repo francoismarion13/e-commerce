@@ -1,55 +1,78 @@
-<app-menu></app-menu>
-<h1>Je créer mon profil</h1>
-<form (submit)="onCreateUser()" name="userCreateForm">
-    <div>
-        <strong>Genre : </strong>
-        <input [(ngModel)]="gender" list="genres" name="genre" id="genre">
-        <datalist id="genres" aria-readonly="true">
-            <option value="Monsieur">
-            <option value="Madame">
-        </datalist>
+<form (submit)="onCreateUser($event)" name="userCreateForm" method="POST" 
+    class="container form-group">
+
+    <app-menu></app-menu>
+
+    <h1 class="my-4">Création de votre compte :</h1>
+
+    <h5 class="my-2">Informations personnelles</h5>
+
+    <div class="form-group">
+
+        <div class="form-check form-check-inline">
+            <input type="radio" [(ngModel)]="gender" class="form-check-input" id="genre1" name="genre" value="Monsieur" checked>
+            <label class="form-check-label" for="genre1">Monsieur</label>
+        </div>
+        
+        <div class="form-check form-check-inline">
+            <input type="radio" [(ngModel)]="gender" class="form-check-input" id="genre2" name="genre" value="Madame">
+            <label class="form-check-label" for="genre2">Madame</label>
+        </div>
+        
+        <input [(ngModel)]="lastname" type="text" name="lastname" id="lastname" class="form-control"
+            placeholder="Nom">
+
+        <input [(ngModel)]="firstname" type="text" name="firstname" id="firstname" class="form-control"
+            placeholder="Prénom">
+
+        <input [(ngModel)]="dateOfBirth" type="text" name="dateOfBirth" id="dateOfBirth" class="form-control"
+            placeholder="Date de naissance">
+
+        <h5 class="my-4">Informations compte</h5>
+
+        <input [(ngModel)]="username" type="text" name="username" id="username" class="form-control"
+            placeholder="Username">
+
+        <input [(ngModel)]="password" type="password" name="password" id="password" class="form-control"
+            placeholder="Mot de passe">
+
+        <input [(ngModel)]="email" type="text" name="email" id="email" class="form-control"
+            placeholder="Courriel">
+            
+        <input [(ngModel)]="phone" type="number" name="phone" id="phone" class="form-control"
+            placeholder="Téléphone (+33 6 )">
+
+        <h5 class="my-4">Vos moyens de paiement</h5>
+
+        <strong class="col-4">Carte principale : </strong>
+
+        <div class="col-6 form-group">
+            <div><input [(ngModel)]="cardNumber" type="number" class="form-control"
+                name="numCard" id="numCard" placeholder="N° de carte"></div>
+            <div><input [(ngModel)]="cardName" type="text" class="form-control"
+                name="nomCard" id="nomCard" placeholder="Nom sur carte"></div>
+            <div><input [(ngModel)]="cardDate" type="text" class="form-control"
+                name="dateCard" id="dateCard" placeholder="Date de validité"></div>
+            <div><input [(ngModel)]="cardSec" type="number" class="form-control"
+                name="numSec" id="numSec" placeholder="Code secret"></div>  
+        </div>
+
+        <h5 class="my-4">Vos adresses de livraison / facturation</h5>
+
+        <strong class="col-4">Adresses enregistrées : </strong>
+
+        <div class="col-6 form-group">
+            <div><input [(ngModel)]="add1" type="text" name="add1" class="form-control"
+                id="add1" placeholder="Adresse 1"></div>
+            <div><input [(ngModel)]="add2" type="text" name="add2" class="form-control"
+                id="add2" placeholder="Adresse 2"></div>
+            <div><input [(ngModel)]="cp" type="text" name="cp" class="form-control"
+                id="cp" placeholder="Code postal"></div>
+            <div><input [(ngModel)]="ville" type="text" name="ville" class="form-control"
+                id="ville" placeholder="Ville"></div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Envoyer">
+
     </div>
-    <div>
-        <strong>Nom : </strong>
-        <input [(ngModel)]="lastname" type="text" name="lastname" id="lastname" placeholder="Nom">
-    </div>
-    <div>
-        <strong>Prénom : </strong>
-        <input [(ngModel)]="firstname" type="text" name="firstname" id="firstname" placeholder="Prénom">
-    </div>
-    <div>
-        <strong>Date de naissance : </strong>
-        <input [(ngModel)]="dateOfBirth" type="text" name="dateOfBirth" id="dateOfBirth" placeholder="Date de naissance">
-    </div>
-    <div>
-        <strong>Username : </strong>
-        <input [(ngModel)]="username" type="text" name="username" id="username" placeholder="Username">
-    </div>
-    <div>
-        <strong>Password : </strong>
-        <input [(ngModel)]="password" type="text" name="password" id="password" placeholder="Mot de passe">
-    </div>
-    <div>
-        <strong>Courriel : </strong>
-        <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Courriel">
-    </div>
-    <div>
-        <strong>Téléphone : </strong>
-        <input [(ngModel)]="phone" type="number" name="phone" id="phone" placeholder="N° de téléphone">
-    </div>
-    <div>
-        <strong>Carte principale : </strong>
-        <p><i>N° de carte : </i><input [(ngModel)]="cardNumber" type="number" name="numCard" id="numCard" placeholder="N° de carte"></p>
-        <p><i>Nom sur la carte : </i><input [(ngModel)]="cardName" type="text" name="nomCard" id="nomCard" placeholder="Nom sur carte"></p>
-        <p><i>Date de validité : </i><input [(ngModel)]="cardDate" type="text" name="dateCard" id="dateCard" placeholder="Date de validité"></p>
-        <p><i>N° secret : </i><input [(ngModel)]="cardSec" type="number" name="numSec" id="numSec" placeholder="Code secret"></p>
-    </div>
-    <div>
-        <strong>Adresses enregistrées : </strong>
-        <p><i>Adresse 1 : </i><input [(ngModel)]="add1" type="text" name="add1" id="add1" placeholder="Adresse 1"></p>
-        <p><i>Adresse 2 :</i><input [(ngModel)]="add2" type="text" name="add2" id="add2" placeholder="Adresse 2"></p>
-        <p><i>Code postal : </i><input [(ngModel)]="cp" type="text" name="cp" id="cp" placeholder="Code postal"></p>
-        <p><i>Ville : </i><input [(ngModel)]="ville" type="text" name="ville" id="ville" placeholder="Ville"></p>
-    </div>
-    <input type="submit" value="Envoyer">
 </form>

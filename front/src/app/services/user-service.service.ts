@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { apiUrl } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Customer } from '../classes/customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
-
+  userLogged
   constructor(private http: HttpClient) {
     this.getUsers();
   }
@@ -15,13 +14,24 @@ export class UserServiceService {
   getUsers(){
     return this.http.get(apiUrl.users);
   }
+
   getUserById(id){
     return this.http.get(apiUrl.users+'/'+id);
   }
+
   createUSer(user){
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
-    }
-    return this.http.post<Customer>(apiUrl.users, user, httpOptions)
+    };
+    return this.http.post(apiUrl.users+'/', user, httpOptions)
+  }
+
+  loginUser(u, p){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    let authentification = { username: u, password: p }
+    return this.http.post(apiUrl.users+'/login', authentification, httpOptions)
   }
 }

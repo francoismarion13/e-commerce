@@ -14,13 +14,13 @@ var app = express();
 //middleware/config server
 
 app.use(express.json());
-app.use(cors())
-
+app.use(cors());
+ 
 app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/shoppingCart", cartsRouter);
 app.use("/users", usersRouter);
-app.use("/", homeRouter); 
+app.use("/", homeRouter);
 
 //connexion
 mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology:true, useNewUrlParser:true})

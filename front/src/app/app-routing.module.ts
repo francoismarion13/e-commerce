@@ -6,6 +6,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FicheCategoryComponent } from './fiche-category/fiche-category.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserConnectComponent } from './user-connect/user-connect.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,11 +38,11 @@ const routes: Routes = [
       { path: ':id', component: UserProfileComponent }
     ]
   },
-  { path: 'userCreate', component: UserCreateComponent }
+  { path: 'userCreate', component: UserCreateComponent },
+  { path: 'userConnect', component: UserConnectComponent}
   // { path: 'edit', component: UserEditComponent},
   // { path: 'delete', component: UserDeleteComponent}
 ]
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -3,7 +3,6 @@ export const environment = {
 };
 
 const host = 'http://localhost:8080/'
-
 export const apiUrl = {
   home: host + '',
   categorys: host + 'categories',
@@ -15,7 +14,4 @@ export const apiUrl = {
   sortPrice: host + 'products/sortPrice'
 };
 
-export var activeUser = "5e52967900e0722e68e47948";
-    production: false
-  
-  
+export var activeUser;

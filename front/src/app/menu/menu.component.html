@@ -18,12 +18,23 @@
     </div>
     <div  class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/userCreate">Créer un user</a>
-        </li>
-        <li>
-          <a class="nav-link" routerLink="/userProfile/{{activeUser}}">Mon compte</a>
-        </li>
+          <div *ngIf="activeUser == null; then blockThen else blockElse"></div>
+          <ng-template #blockThen>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/userCreate">Sign In</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/userConnect">Log In</a>
+            </li>
+          </ng-template>
+          <ng-template #blockElse>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/userProfile/{{activeUser}}">Mon compte</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/userDisconnect">Mon compte</a>
+            </li>
+          </ng-template>
       </ul>
     </div>
 
