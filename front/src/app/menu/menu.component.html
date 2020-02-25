@@ -18,7 +18,7 @@
     </div>
     <div  class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
-          <div *ngIf="activeUser === null; then blockThen else blockElse"></div>
+          <div *ngIf="activeUser == null; then blockThen else blockElse"></div>
           <ng-template #blockThen>
             <li class="nav-item active">
               <a class="nav-link" routerLink="/userCreate">Sign In</a>
@@ -32,7 +32,7 @@
               <a class="nav-link" routerLink="/userProfile/{{activeUser}}">Mon profil</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/userDisconnect">Log Out</a>
+              <a class="nav-link" routerLink="/userConnect" (click)="logoutUser()">Log Out</a>
             </li>
           </ng-template>
       </ul>
