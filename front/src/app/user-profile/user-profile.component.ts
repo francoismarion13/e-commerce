@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { activeUser } from 'src/environments/environment';
+import { sessionGlobal } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-profile',

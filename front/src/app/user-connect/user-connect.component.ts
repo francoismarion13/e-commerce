@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
-import { activeUser } from './../../environments/environment'
+import { sessionGlobal } from './../../environments/environment'
 
 @Component({
   selector: 'app-user-connect',
@@ -23,8 +23,8 @@ export class UserConnectComponent implements OnInit {
     e.preventDefault();
     this.uS.loginUser(this.username, this.password).subscribe(data => {
       this.loggedUser = data;
-      //activeUser = this.loggedUser;
+      sessionGlobal.activeUser = this.loggedUser;
     })
-    console.log(activeUser);
+    console.log(sessionGlobal.activeUser);
   }
 }

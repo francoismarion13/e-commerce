@@ -14,4 +14,7 @@ export const apiUrl = {
   sortPrice: host + 'products/sortPrice'
 };
 
-export var activeUser;
+//export var activeUser;
+export class sessionGlobal {
+  public static activeUser: any;
+}
