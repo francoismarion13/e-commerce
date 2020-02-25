@@ -31,7 +31,11 @@ GET http://localhost:8080/
 /////////////////////////////////////////////////////////////
 GET http://localhost:8080/shoppingCart
 ################################
-GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df7
+GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8
+################################
+DELETE http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8/product/5e4d49d80a3d603d6e4fdcdc
+
+# db.getCollection("carts").deleteOne({}, { $pull: { products: { _id: "5e4d49d80a3d603d6e4fdcdc" } } }, {multi:true})
 ################################
 
 /////////////////////////////////////////////////////////////
