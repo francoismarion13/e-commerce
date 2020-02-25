@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
-import { apiUrl } from 'environments/environment';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { apiUrlAdmin } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  http: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+  }
+
+  getAdmins(){
+    console.log(apiUrlAdmin);
+    return this.http.get(apiUrlAdmin.home);
+  }
+
+  getUserById(id){
+    return this.http.get(apiUrlAdmin.home+'/'+id);
+  }
 
   loginAdmin(u, p){
     const httpOptions = {
@@ -16,6 +25,6 @@ export class AdminService {
     };
 
     let authentification = { username: u, password: p }
-    return this.http.post(apiUrl.admins+'/login', authentification, httpOptions)
+    return this.http.post(apiUrlAdmin+'/login', authentification, httpOptions)
   }
 }

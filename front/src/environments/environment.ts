@@ -3,6 +3,7 @@ export const environment = {
 };
 
 const host = 'http://localhost:8080/'
+const hostAdmin = 'http://localhost:8080/admins'
 export const apiUrl = {
   home: host + '',
   categorys: host + 'categories',
@@ -15,7 +16,15 @@ export const apiUrl = {
   sortPrice: host + 'products/sortPrice'
 };
 
+export const apiUrlAdmin = {
+  home: hostAdmin + '',
+};
+
 //export var activeUser;
 export class sessionGlobal {
   public static activeUser: any;
+}
+
+export class sessionGlobalAdmin {
+  public static activeAdmin: any;
 }

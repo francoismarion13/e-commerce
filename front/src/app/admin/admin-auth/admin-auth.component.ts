@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/app/services/admin.service';
+import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
-import { sessionGlobal } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin-auth',
@@ -9,27 +8,41 @@ import { sessionGlobal } from 'src/environments/environment';
   styleUrls: ['./admin-auth.component.css']
 })
 export class AdminAuthComponent implements OnInit {
-  loggedUser;
+  loggedAdmin;
   username;
   password;
   userId;
+  isAuthAdmin: Boolean = false;
 
-  constructor( private aS: AdminService, private routes: Router) { }
+  constructor(private aS: AdminService, private routes: Router) { }
 
   ngOnInit() {
     this.username = '';
     this.password = '';
   }
 
-  onLogin(e){
+  login(e) {
     e.preventDefault();
-    this.aS.loginAdmin(this.username, this.password).subscribe(data => {
-      //this.loggedUser = data;
-      this.loggedUser = data;
-      sessionGlobal.activeUser = data;
-    })
-    console.log()
-    this.routes.navigate(['/']);
+    this.aS.getAdmins().subscribe((data : any[]) => {
+      console.log(data);
+      data.forEach((u) => {
+        if (u.username === this.username) {
+          if (u.password === this.password) {
+            this.isAuthAdmin = true;
+          }
+        } else {
+          console.log('username or password incorrect');
+        }
+        if (this.isAuthAdmin) {
+          this.routes.navigate(['/admin/adminHome']);
+        }
+
+      });
+    });
+
+
   }
+
+
 
 }

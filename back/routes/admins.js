@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Admin = require('../models/Admin');
+const admin = require('../models/admin');
 const url = require('url');
 const jsonParser = require('body-parser').json();
 
@@ -12,9 +12,10 @@ router.get('/', async (req,res) => {
                 newRegex = new RegExp('^' + req.query[i]);
                 query[i] = { $regex: newRegex, $options:'i' };
             }
-            admins = await user.find(query);
+            admins = await admin.find(query);
         }else{
-            admins = await user.find();
+            admins = await admin.find();
+            console.log(admins);
         }
         res.status(200).json(admins);
     }catch(err){
@@ -24,14 +25,14 @@ router.get('/', async (req,res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        AdminProfile = await Admin.findOne({ _id: req.params.id });
+        AdminProfile = await admin.findOne({ _id: req.params.id });
         res.json(AdminProfile);
     } catch (err) { throw err }
 })
 
 router.post('/', jsonParser, async (req,res) => {
     try{
-        let AdminCreate = new Admin(req.body);
+        let AdminCreate = new admin(req.body);
         await AdminCreate.save();
         res.status(201).json(AdminCreate);
     }catch(err){
@@ -41,11 +42,11 @@ router.post('/', jsonParser, async (req,res) => {
 
 router.post('/login', jsonParser, async (req,res) => {
     try{
-        let AdminProfile = await Admin.findOne({ username: req.body.username, 
+        let AdminProfile = await admin.findOne({ username: req.body.username, 
             password: req.body.password });
         res.status(200).json(AdminProfile);
     }catch(err){
-        console.log("User not found")
+        console.log("Admin not found")
         throw err;
     }
 });

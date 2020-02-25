@@ -23,7 +23,6 @@ app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/shoppingCart", cartsRouter);
 app.use("/users", usersRouter);
-app.use("/", homeRouter); 
 app.use("/payments", paymentsRouter);
 app.use("/admins", adminsRouter);
 app.use("/", homeRouter);
