@@ -8,9 +8,11 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container">
+	<form (ngSubmit)="onsubmit()" >
 	<table id="cart" class="table table-hover table-condensed">
 
 					<tbody>
+						
                         <div *ngFor="let product of myCart?.products">
 						<tr>
 							<td data-th="Product">
@@ -28,22 +30,23 @@
 							</td>
 							<td data-th="Subtotal" class="text-center">Total: {{product.price*product.qte}}</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm " (click)="deleteProductOfCart(product)"><i class="fa fa-trash-o"></i></button>								
+								<button class="btn btn-danger btn-sm " (click)="deleteProductOfCart(product, cart)"><i class="fa fa-trash-o"></i></button>								
 							</td>
                         </tr>
                     </div>
 					</tbody>
 					<tfoot>
 						<tr class="visible-xs">
-							<td class="text-center"><strong>Total {{myCart?.totalPrice}}</strong></td>
+							<td class="text-center"><strong>Total {{myCart?.total_price}}</strong></td>
 						</tr>
 						<tr>
 							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue le Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center" ><strong>total prix: {{myCart?.totalPrice}}</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Validée <i class="fa fa-angle-right"></i></a></td>
+							<td class="hidden-xs text-center" ><strong>total prix: {{myCart?.total_price}}</strong></td>
+							<td><a href="#" type="submit" id="submit" value="Submit" class="btn btn-success btn-block" [routerLink]="['/payments']">Validée <i class="fa fa-angle-right"></i></a></td>
                         </tr>
 						
 					</tfoot>
 				</table>
+			</form>
 </div>

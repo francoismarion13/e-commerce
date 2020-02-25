@@ -7,6 +7,7 @@ import { FicheCategoryComponent } from './fiche-category/fiche-category.componen
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +41,8 @@ const routes: Routes = [
   },
   { path: 'userCreate', component: UserCreateComponent },
   { path: 'userConnect', component: UserConnectComponent}
+  { path: 'payments', component: PaymentsComponent }
+
   // { path: 'edit', component: UserEditComponent},
   // { path: 'delete', component: UserDeleteComponent}
 ]

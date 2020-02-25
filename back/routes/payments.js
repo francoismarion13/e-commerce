@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const carts = require('../models/shoppingCart');
+const payments = require('../models/payments');
 const jsonParser = require('body-parser').json();
 const mongoose = require('mongoose');
 // router.get('/', async (req, res) => {
@@ -10,13 +10,12 @@ const mongoose = require('mongoose');
 //         throw err
 //     }
 // })
-
-router.get('/:id', async function (req, res) {
+router.get('/', async function (req, res) {
     try {
-        let cart = await carts.findOne({ _id: req.params.id });
-        res.json(cart);
-    } catch (err) {
-        throw err;
+        let paymentsAll = await payments.find();
+        res.json(paymentsAll);
+    } catch (payments) {
+        throw payments;
     }
 })
 
@@ -37,14 +36,6 @@ router.get('/:id', async function (req, res) {
 //     }
 // })
 
-router.put('/:cartid', jsonParser, async (req, res) => {
-    try {
-        console.log(req.body._id)
-        let cart = await carts.findOneAndUpdate({ _id: req.params.cartid }, { $pull: { products: { _id: req.body._id } } }, { new: true })
-        res.status(200).send(cart);
-    } catch (err) {
-        throw err
-    }
-})
+
 
 module.exports = router;
