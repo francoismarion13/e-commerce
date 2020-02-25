@@ -11,6 +11,7 @@ export class AdminService {
   }
 
   getAdmins(){
+    console.log(apiUrlAdmin);
     return this.http.get(apiUrlAdmin.home);
   }
 
