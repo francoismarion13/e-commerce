@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { apiUrl } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { sessionGlobal } from './../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,10 @@ export class UserServiceService {
 
     let authentification = { username: u, password: p }
     return this.http.post(apiUrl.users+'/login', authentification, httpOptions)
+  }
+
+  logoutUser(user){
+    sessionGlobal.activeUser = null;
+    this.userLogged = null;
   }
 }

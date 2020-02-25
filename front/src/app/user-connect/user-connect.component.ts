@@ -23,10 +23,9 @@ export class UserConnectComponent implements OnInit {
   onLogin(e){
     e.preventDefault();
     this.uS.loginUser(this.username, this.password).subscribe(data => {
-      //this.loggedUser = data;
-      this.loggedUser = data;
       sessionGlobal.activeUser = data;
+      this.loggedUser = data;
+      this.routes.navigate(['/userProfile/'+(sessionGlobal.activeUser)._id]);
     })
-    this.routes.navigate(['/']);
   }
 }

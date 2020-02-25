@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from '../services/product.service';
-import { sessionGlobal } from './../../environments/environment'
+import { UserServiceService } from '../services/user-service.service';
+import { sessionGlobal } from './../../environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit {
   categories;
   activeUser;
 
-  constructor(private cS: CategoryService, private pS: ProductService) { }
+  constructor(private cS: CategoryService, private pS: ProductService, private uS: UserServiceService) { }
 
   ngOnInit() {
     this.name='';
@@ -26,6 +27,9 @@ export class MenuComponent implements OnInit {
     if(this.name != ''){
       this.pS.getProductsByName(this.name).subscribe(data => this.products = data);
     }
-    
+  }
+
+  logoutUser(){
+    this.uS.logoutUser(sessionGlobal.activeUser);
   }
 }
