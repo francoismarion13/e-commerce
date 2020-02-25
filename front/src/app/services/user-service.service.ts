@@ -7,7 +7,9 @@ import { sessionGlobal } from './../../environments/environment'
   providedIn: 'root'
 })
 export class UserServiceService {
+  
   userLogged
+
   constructor(private http: HttpClient) {
     this.getUsers();
   }
@@ -25,6 +27,13 @@ export class UserServiceService {
       headers: new HttpHeaders({'Content-Type':'application/json'})
     };
     return this.http.post(apiUrl.users+'/', user, httpOptions)
+  }
+
+  updateUser(user){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.put(apiUrl.users + '/' + user._id, user, httpOptions);
   }
 
   loginUser(u, p){

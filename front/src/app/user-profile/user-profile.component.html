@@ -1,19 +1,93 @@
-<form class="container form-group">
+<form class="container form-group" (submit)="onUpdate($event)">
     <app-menu></app-menu>
     <h1>Mon profil</h1>
-    <p><strong>Genre : </strong>{{user?.gender}}</p>
-    <p><strong>Nom : </strong>{{user?.lastname}}</p>
-    <p><strong>Prénom : </strong>{{user?.firstname}}</p>
-    <p><strong>Username : </strong>{{user?.username}}</p>
-    <p><strong>Password : </strong>{{user?.password}}</p>
-    <p><strong>Courriel : </strong>{{user?.email}}</p>
-    <p><strong>Téléphone : </strong>{{user?.phone}}</p>
-    <p><strong>Cartes enregistrées : </strong></p>
-    <div *ngFor="let card of user?.cards">
-        {{card?.cardNumber}} {{card?.cardUserName}} {{card?.cardDate}} {{card?.cardSecretVerif}}
+    <strong>Genre : </strong>
+    <div>
+        <div class="form-check form-check-inline">
+            <input type="radio" [(ngModel)]="user.gender" class="form-check-input" 
+                id="genre1" name="genre" value="Monsieur" checked>
+            <label class="form-check-label" for="genre1">Monsieur</label>
+        </div>
+        
+        <div class="form-check form-check-inline">
+            <input type="radio" [(ngModel)]="user.gender" class="form-check-input" 
+                id="genre2" name="genre" value="Madame">
+            <label class="form-check-label" for="genre2">Madame</label>
+        </div>
+        <!-- <div class="form-check form-check-inline">
+            <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender" 
+                class="form-check-input" id="genre1" name="genre" [checked]="user.gender == 'Monsieur'">
+            <label class="form-check-label" for="genre1">Monsieur</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender" 
+                class="form-check-input" id="genre2" name="genre" [checked]="user.gender == 'Madame'">
+            <label class="form-check-label" for="genre2">Madame</label>
+        </div> -->
     </div>
-    <p><strong>Adresses enregistrées : </strong></p>
-    <div *ngFor="let adresse of user?.adresses">
-        {{adresse?.adresse1}} {{adresse?.adresse2}} {{adresse?.codePostal}} {{adresse?.ville}}
+    <p>
+        <strong>Nom : </strong> {{user.lastname}}
+        <input [(ngModel)]="user.lastname" 
+            name="lastname" type="text" class="form-control" id="lastname" placeholder="Nom">
+    </p>
+    <p>
+        <strong>Prénom : </strong>
+        <input [(ngModel)]="user.firstname"
+            name="firstname" type="text" class="form-control" id="firstname"
+            placeholder="Prénom">
+    </p>
+    <p>
+        <strong>Date de naissance : </strong>
+        <input [(ngModel)]="user.dateOfBirth" 
+            name="dateofbirth" type="text" class="form-control" id="dateofbirth"
+            placeholder="Date de naissance">
+    </p>
+    <p>
+        <strong>Username : </strong>
+        <input [(ngModel)]="user.username" name="username" 
+            type="text" class="form-control" id="username" placeholder="Login">
+    </p>
+    <p>
+        <strong>Password : </strong>
+        <input [(ngModel)]="user.password" name="password"
+            type="password" class="form-control" id="password" placeholder="Mot de passe">
+    </p>
+    <p>
+        <strong>Courriel : </strong>
+        <input [(ngModel)]="user.email" name="email" 
+            type="text" class="form-control" id="email" placeholder="Courriel">
+    </p>
+    <p>
+        <strong>Téléphone : </strong>
+        <input [(ngModel)]="user.phone"  name="phone" 
+            type="text" class="form-control" id="phone" placeholder="Téléphone">
+    </p>
+    <strong>Cartes enregistrées : </strong>
+    <div *ngFor="let card of user?.cards; index as i">
+        <div>Carte :</div>
+        <input [(ngModel)]="card.cardNumber" 
+            name="cardNumber[{{i}}]" type="text" class="form-control" placeholder="N° de carte">
+        <input [(ngModel)]="card.cardUserName" 
+            name="cardUserName[{{i}}]" type="text" class="form-control" placeholder="Nom figurant sur la carte">
+        <input [(ngModel)]="card.cardDate" 
+            name="cardDate[{{i}}]" type="text" class="form-control" placeholder="Date de validité">
+        <input [(ngModel)]="card.cardSecretVerif" 
+            name="cardSecretVerif[{{i}}]" type="text" class="form-control" placeholder="Code secret">
+    </div>
+    <strong>Adresses enregistrées : </strong>
+    <div *ngFor="let adresse of user?.adresses; index as i">
+        <div>Adresse :</div>
+        <input [(ngModel)]="adresse.adresse1" 
+        name="adresse[{{i}}]" type="text" class="form-control" placeholder="Adresse 1">
+        <input [(ngModel)]="adresse.adresse2" 
+        name="complement[{{i}}]" type="text" class="form-control" placeholder="Adresse 2">
+        <input [(ngModel)]="adresse.codePostal" 
+        name="codePostal[{{i}}]" type="text" class="form-control" placeholder="Code postal">
+        <input [(ngModel)]="adresse.ville"  
+        name="ville[{{i}}]" type="text" class="form-control" placeholder="Ville">
+    </div>
+    <p></p>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </form>
