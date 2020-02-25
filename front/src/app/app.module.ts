@@ -21,6 +21,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserConnectComponent } from './user-connect/user-connect.component';
     UserProfileComponent,
     SideBarComponent,
     JwPaginationComponent,
-    UserConnectComponent
+    UserConnectComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,

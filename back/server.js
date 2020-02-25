@@ -9,6 +9,7 @@ const productRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
 const cartsRouter = require('./routes/shoppingCart');
 const usersRouter = require('./routes/users');
+const paymentsRouter = require('./routes/payments');
 
 var app = express();
 //middleware/config server
@@ -20,9 +21,11 @@ app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/shoppingCart", cartsRouter);
 app.use("/users", usersRouter);
-app.use("/", homeRouter);
+app.use("/", homeRouter); 
+app.use("/payments", paymentsRouter);
 
 //connexion
+mongoose.set('useFindAndModify', false);
 mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology:true, useNewUrlParser:true})
 let db = mongoose.connection
 db.on('error', (err => {throw err}))
