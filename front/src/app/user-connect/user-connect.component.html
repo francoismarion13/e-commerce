@@ -10,5 +10,8 @@
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Log In</button>
     </div>
+    <div *ngIf="loggedUser === null">
+        <p class="text-danger">Login ou mot de passe incorrect</p>
+    </div>
 </form>
 <!--{{loggedUser|json}}-->

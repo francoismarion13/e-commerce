@@ -1,17 +1,19 @@
-<app-menu></app-menu>
-<h1>Mon profil</h1>
-<p><strong>Genre : </strong>{{user?.gender}}</p>
-<p><strong>Nom : </strong>{{user?.lastname}}</p>
-<p><strong>Prénom : </strong>{{user?.firstname}}</p>
-<p><strong>Username : </strong>{{user?.username}}</p>
-<p><strong>Password : </strong>{{user?.password}}</p>
-<p><strong>Courriel : </strong>{{user?.email}}</p>
-<p><strong>Téléphone : </strong>{{user?.phone}}</p>
-<p><strong>Cartes enregistrées : </strong></p>
-<div *ngFor="let card of user?.cards">
-    {{card?.cardNumber}} {{card?.cardUserName}} {{card?.cardDate}} {{card?.cardSecretVerif}}
-</div>
-<p><strong>Adresses enregistrées : </strong></p>
-<div *ngFor="let adresse of user?.adresses">
-    {{adresse?.adresse1}} {{adresse?.adresse2}} {{adresse?.codePostal}} {{adresse?.ville}}
-</div>
+<form class="container form-group">
+    <app-menu></app-menu>
+    <h1>Mon profil</h1>
+    <p><strong>Genre : </strong>{{user?.gender}}</p>
+    <p><strong>Nom : </strong>{{user?.lastname}}</p>
+    <p><strong>Prénom : </strong>{{user?.firstname}}</p>
+    <p><strong>Username : </strong>{{user?.username}}</p>
+    <p><strong>Password : </strong>{{user?.password}}</p>
+    <p><strong>Courriel : </strong>{{user?.email}}</p>
+    <p><strong>Téléphone : </strong>{{user?.phone}}</p>
+    <p><strong>Cartes enregistrées : </strong></p>
+    <div *ngFor="let card of user?.cards">
+        {{card?.cardNumber}} {{card?.cardUserName}} {{card?.cardDate}} {{card?.cardSecretVerif}}
+    </div>
+    <p><strong>Adresses enregistrées : </strong></p>
+    <div *ngFor="let adresse of user?.adresses">
+        {{adresse?.adresse1}} {{adresse?.adresse2}} {{adresse?.codePostal}} {{adresse?.ville}}
+    </div>
+</form>
