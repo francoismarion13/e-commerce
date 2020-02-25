@@ -23,6 +23,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { ListProductComponent } from './admin/list-product/list-product.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
     JwPaginationComponent,
     UserConnectComponent,
     PaymentsComponent,
-    AdminAuthComponent
+    AdminAuthComponent,
+    AdminHomeComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,

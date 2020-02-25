@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router } from '@angular/router';
-import { sessionGlobal } from 'src/environments/environment';
+import { sessionGlobalAdmin } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin-auth',
@@ -9,7 +9,7 @@ import { sessionGlobal } from 'src/environments/environment';
   styleUrls: ['./admin-auth.component.css']
 })
 export class AdminAuthComponent implements OnInit {
-  loggedUser;
+  loggedAdmin;
   username;
   password;
   userId;
@@ -21,15 +21,25 @@ export class AdminAuthComponent implements OnInit {
     this.password = '';
   }
 
-  onLogin(e){
+  login(e){
     e.preventDefault();
-    this.aS.loginAdmin(this.username, this.password).subscribe(data => {
-      //this.loggedUser = data;
-      this.loggedUser = data;
-      sessionGlobal.activeUser = data;
-    })
-    console.log()
-    this.routes.navigate(['/']);
+    this.aS.getAdmins().subscribe(data => {
+      data.forEach((u)=>{
+        
+         if(u.username === this.username){
+            if(u.password === this.password){
+              this.routes.navigate(['/admin/adminHome']);
+            } 
+        } else{
+          console.log('username or password incorrect');
+        }
+      })
+
+      //console.log(data[0].lastname) ;
+     // sessionGlobal.activeAdmin = data;
+    });
   }
+
+  
 
 }
