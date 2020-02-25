@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import { activeUser } from './../../environments/environment'
 import { ProductService } from '../services/product.service';
+import { sessionGlobal } from './../../environments/environment'
 
 @Component({
   selector: 'app-menu',
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.name='';
     this.cS.getCategory().subscribe(data => {this.categories = data; });
-    this.activeUser = activeUser;
+    this.activeUser = sessionGlobal.activeUser;
   }
 
   getProduct(){

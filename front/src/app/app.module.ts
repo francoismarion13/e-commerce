@@ -20,6 +20,7 @@ import { FicheCategoryComponent } from './fiche-category/fiche-category.componen
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { UserConnectComponent } from './user-connect/user-connect.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     UserCreateComponent,
     UserProfileComponent,
     SideBarComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
+    UserConnectComponent
   ],
   imports: [
     BrowserModule,
