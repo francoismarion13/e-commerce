@@ -31,4 +31,8 @@ export class ProductService {
   getSortedProductsByPrice(){
     return this.http.get(apiUrl.sortPrice);
   }
+
+  getProductsByName(name){
+    return this.http.get(apiUrl.tri + '?name=' + name);
+  }
 }

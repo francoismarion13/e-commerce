@@ -5,6 +5,8 @@ GET http://localhost:8080/products
 ################################
 GET http://localhost:8080/products/sort
 ################################
+http://localhost:8080/products/tri?name=b
+################################
 GET http://localhost:8080/products/sortPrice
 ################################
 GET http://localhost:8080/products/5e4d49d80a3d603d6e4fdcdd

@@ -22,6 +22,24 @@ router.get('/', async (req, res) => {
     } catch (err) { throw err }
   })
 
+  router.get('/tri', async (req, res) => {
+    let query = {}
+    try {
+      if (Object.keys(req.query).length > 0) {
+            for (let i in req.query) {
+              regex = new RegExp('^'+req.query[i])
+            query[i] = { $regex: regex , $options:'i'}
+          }
+          productList = await products.find(query);
+       
+      } else {
+        productList = await products.find();
+      }
+      console.log('requête get reçue')
+      res.json(productList);
+    } catch (err) { throw err }
+  })
+
 
   // get sort alphabetically
   router.get('/sort', async function(req,res){ 

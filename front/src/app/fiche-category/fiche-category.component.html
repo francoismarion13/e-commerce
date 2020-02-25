@@ -12,11 +12,60 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Categorie {{ category?.name}}</h1>
-        <div class="list-group" *ngFor="let product of category.products; index as i">
-          {{product?.name}}
-        </div>
+        <div class="border-sideBar">
+       
+          <h4 class="h4-text">Choisir votre produit</h4>
+          <!-- <div class="form-group" [class.has-error]="taille.touched && taille.invalid">
+            <label>Par Taille </label>
+            <div class="form-control">
+              <label class="radio-inline" >
+                <input type="radio" required #taille="ngModel" value="s" name="s" [(ngModel)]="category.products.size">S
+              </label>
+              <label class="radio-inline" style="margin-left: 10px">
+                <input type="radio" required #taille="ngModel" value="m" name="m" [(ngModel)]="category.products.size">M
+              </label>
+              <label class="radio-inline" style="margin-left: 10px">
+                <input type="radio" required #taille="ngModel" value="l" name="l" [(ngModel)]="category.products.size">L
+              </label>
+              <label class="radio-inline" style="margin-left: 10px">
+                <input type="radio" required #taille="ngModel" value="xl" name="xl" [(ngModel)]="category.products.size">XL
+              </label>
+              
+            </div>
+            <span class="help-block" *ngIf="taille.touched && taille.invalid"></span>
+              Size 
+            </span>
+        </div> -->
 
+        
+          
+          <label class="label-text">Trier Par: </label>
+          <select id="sort" name="sort" class="form-control selcls" [(ngModel)]="sort" (change)="this.onChange($event.target.value)">
+            <option value="" disabled selected> --choisir--</option>
+            <option value="alphabetical"> Nom</option>
+            <option value="price"> Prix</option>
+          </select>
+        
+      
+        <label class="label-text">Trier Par Taille </label>
+        <select id="taille" name="taille" class="form-control selcls" [(ngModel)]="taille" (change)="this.selectWithSizeForm($event.target.value)">
+          <option value="" disabled selected> --choisir--</option>
+          <option value="s"> S</option>
+          <option value="m"> M</option>
+          <option value="l"> L</option>
+          <option value="xl"> XL</option>
+        </select>
+
+        <label class="label-text">Trier Par Prix </label>
+        <select id="taille" name="taille" class="form-control selcls" [(ngModel)]="taille" (change)="this.selectWithPriceForm($event.target.value)">
+          <option value="" disabled selected> --choisir--</option>
+          <option value="100"> 0 - 100</option>
+          <option value="200"> 100 - 200</option>
+          <option value="300"> 200 - 300</option>
+        </select>
+        
+
+      </div>
       </div>
       <!-- /.col-lg-3 -->
 
@@ -24,52 +73,47 @@
           
         <br />
 
-        <form class="form-inline">
-          <div class="form-group mb-2">
-            <input type="text" readonly class="form-control-plaintext"  value="Trier par:">
-          </div>
-          <select id="sort" name="sort" class="form-control" [(ngModel)]="sort" (change)="this.onChange($event.target.value)">
-            <option value="alphabetical"> Nom</option>
-            <option value="price"> Prix</option>
-          </select>
-        </form>
+   
 
         
         <div class="row">
+          
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of affichage; index as i" >
+              <div class="card h-100" *ngIf="i+1<10">
+                <a href="#"><img class="card-img-top" src="../assets/{{i+1}}.jpg" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                      <a routerLink="/product/{{product._id}}">{{product.name}}</a>
+                  </h4>
+                  <h5 style="color: red">{{product.price}} $</h5>
+                  <h5 >Taille:  {{product.size | uppercase}}</h5>
 
-                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of category.products; index as i" >
-                    <div class="card h-100" *ngIf="i+1<10">
-                      <a href="#"><img class="card-img-top" src="../assets/{{i+1}}.jpg" alt=""></a>
-                      <div class="card-body">
-                        <h4 class="card-title">
-                            <a routerLink="/product/{{product._id}}">{{product.name}}</a>
-                        </h4>
-                        <h5 style="color: red">$ {{product.price}}</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                      </div>
-                      <div class="card-footer">
-                        <a routerLink="/shoppingCart/5e4ff9a4f4250a48fa454f35">
-                          <button type="button" class="btn btn-primary"> <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button>
-                        </a>
-                        <small class="text-muted" > &#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                      <button type="button" class="btn btn-secondary">1</button>
-                      <button type="button" class="btn btn-secondary">2</button>
-                      <button type="button" class="btn btn-secondary">3</button>
-                      <button type="button" class="btn btn-secondary">4</button>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="Third group">
-                      <button type="button" class="btn btn-secondary">8</button>
-                    </div>
-                  </div>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                </div>
+                <div class="card-footer">
+                  <a routerLink="/shoppingCart/5e4ff9a4f4250a48fa454f35">
+                    <button type="button" class="btn btn-primary"> <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button>
+                  </a>
+                  <small class="text-muted" > &#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
+            </div>
+          
+                  
 
         </div>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">1</button>
+            <button type="button" class="btn btn-secondary">2</button>
+            <button type="button" class="btn btn-secondary">3</button>
+            <button type="button" class="btn btn-secondary">4</button>
+          </div>
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-secondary">8</button>
+          </div>
+        </div>
+
         <!-- /.row -->
 
       </div>

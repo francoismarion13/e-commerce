@@ -8,6 +8,7 @@ export const apiUrl = {
   home: host + '',
   categorys: host + 'categories',
   products:  host + 'products',
+  tri:  host + 'products/tri',
   shoppingCart: host + 'shoppingCart',
   users: host + 'users',
   sortAlphabetically: host + 'products/sort',

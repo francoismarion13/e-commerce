@@ -1,0 +1,30 @@
+.border-sideBar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #C1C1C1
+}
+
+.selcls { 
+    width: 60%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    padding: 9px; 
+    border: solid 1px #517B97; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CAD9E3), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #CAD9E3 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+    } 
+
+.label-text {
+    margin-left: 10%;
+    font-weight: bold;
+}
+
+.h4-text {
+    margin-left: 5%;
+}
+
