@@ -18,7 +18,7 @@ var app = express();
 
 app.use(express.json());
 app.use(cors());
- 
+
 app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/shoppingCart", cartsRouter);
@@ -28,11 +28,13 @@ app.use("/admins", adminsRouter);
 app.use("/", homeRouter);
 
 //connexion
-mongoose.set('useFindAndModify', false);
-mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology:true, useNewUrlParser:true})
+mongoose.set('useFindAndModify', true)
+mongoose.connect(process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true })
 let db = mongoose.connection
-db.on('error', (err => {throw err}))
-db.once('open', (err => {console.log('database connected')}))
+db.on('error', (err => { throw err }))
+db.once('open', (err => {
+    console.log('database connected')
+}))
 
 app.listen(process.env.PORT, () =>
     console.log('server is running on port ' + process.env.PORT)

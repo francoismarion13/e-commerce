@@ -45,7 +45,7 @@ DELETE http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8/product/5e4d4
 /////////////////////////////////////////////////////////////
 GET http://localhost:8080/users
 ################################
-GET http://localhost:8080/users/5e523a0aa934b42de0eb5c66
+GET http://localhost:8080/users/5e53fe0e0de25b30681b7372
 ################################
 POST http://localhost:8080/users
 Content-Type: application/json
@@ -90,3 +90,27 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
 }
+PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372
+Content-Type: application/json
+
+{
+    "_id": "5e53fe0e0de25b30681b7372",
+    "gender": "Monsieur",
+    "lastname": "MARION",
+    "firstname": "François",
+    "dateOfBirth": "31/12/1987",
+    "username": "f",
+    "password": "a",
+    "email": "blablabla@gmail.com",
+    "phone": "6",
+    "cards": [
+        { "cardNumber": "234565876", "cardUserName": "MR MARION FRANCOIS", "cardDate": "13/01/2022", "cardSecretVerif": "743" },
+        { "cardNumber": "456754673", "cardUserName": "MR MARION FRANCOIS", "cardDate": "13/01/2021", "cardSecretVerif": "325" },
+        { "cardNumber": "3", "cardUserName": "MR MARION FRANCOIS", "cardDate": "13/01/2021", "cardSecretVerif": "325" }
+    ],
+    "adresses": [
+        { "adresse1": "23 rue ON NE SAIT PAS", "adresse2": null, "codePostal": "21210", "ville": "SAULIEU" },
+        { "adresse1": "55 avenue du général de gaulle", "adresse2": "chemin bis", "codePostal": "13100", "ville": "AIX EN PROVENCE" }
+    ]
+}
+################################

@@ -22,7 +22,7 @@ export const apiUrlAdmin = {
 
 //export var activeUser;
 export class sessionGlobal {
-  public static activeUser: any;
+  public static activeUser;
 }
 
 export class sessionGlobalAdmin {

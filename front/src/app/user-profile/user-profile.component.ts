@@ -17,16 +17,17 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id') ? params.get('id') : '5e4652248e0fb5038c799fff'
+      this.id = params.get('id')
       this.uS.getUserById(this.id).subscribe(data=>{
         this.user = data;
       })
     });
   }
 
-  // getActiveUser(){
-  //   this.uS.getUserById(activeUser).subscribe(data=> {
-  //     this.user = data;
-  //   });
-  // }
+  onUpdate(e){
+    e.preventDefault();
+    this.uS.updateUser(this.user).subscribe( data => {
+      sessionGlobal.activeUser = data;
+    });
+  }
 }
