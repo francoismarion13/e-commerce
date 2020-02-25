@@ -11,7 +11,7 @@ const jsonParser = require('body-parser').json();
 //     }
 // })
 
-router.get('/:id', async function(req,res){ 
+router.get('/:id', async function (req, res) {
     try {
         let cart = await carts.findOne({ _id: req.params.id });
         res.json(cart);
@@ -37,10 +37,10 @@ router.get('/:id', async function(req,res){
 //     }
 // })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:cartid/product/:productid', async (req, res) => {
     try {
-        await carts.findOneAndDelete({ _id: req.params.id })
-        res.status(200);
+        let cart = await carts.deleteOne({ _id: req.params.cartid }, { $pull: { products: { _id: req.body.productid } } })
+        res.status(200).send(cart);
     } catch (err) {
         throw err
     }

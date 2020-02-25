@@ -6,5 +6,6 @@ export const environment = {
   
   export const apiUrl = {
     users: host + 'users',
-    posts:  host + 'users/add'
+    posts:  host + 'users/add',
+    // products :  host+ 'products/delete'
   };

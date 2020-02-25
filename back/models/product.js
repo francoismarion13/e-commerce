@@ -14,7 +14,8 @@ const productSchema = new mongoose.Schema({
     marque: {type : String, requirede: true},
     tax: {type : Number},
     size: {type : String, requirede: true},
-    id_categorie: {type : Number, requirede: true}
+    id_categorie: {type : Number, requirede: true},
+    couleur: {type : String}
 });
 
 var Products = mongoose.model('Product', productSchema);

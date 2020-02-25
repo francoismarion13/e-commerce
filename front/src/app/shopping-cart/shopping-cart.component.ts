@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
+import { Cart } from '../classes/cart'
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,22 +11,31 @@ import { ActivatedRoute } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ShoppingCartComponent implements OnInit {
-  totalPriceCart
-  myCart;
+  myCart:Cart;
   id;
-
-  constructor(private scS: ShoppingCartService, private route: ActivatedRoute) { }
+  cart;
+  constructor(private scS: ShoppingCartService, private route: ActivatedRoute, private pS: ProductService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') ? params.get('id') : '5e4f9e60e66c951821123cfe'
       this.scS.getCartById(this.id).subscribe(data=>{
-        this.myCart = this.scS.calculateTotalPrice(data);
-        this.totalPrice(this.myCart )
+        this.myCart = new Cart(data)
+        console.log(data)
+        this.myCart.calculateTotalPrice()
+        
       })
     });
   }
-  totalPrice(cart){
-   this.totalPriceCart = this.scS.getCalculateTotal(cart);
-  }
+  refreshTotal(){
+    this.myCart.calculateTotalPrice();
+  };
+
+
+
+deleteProductOfCart(product){
+  this.scS.deleteProductOfCart(product, this.myCart)
+  console.log(this.myCart);
+
+}
 }
