@@ -10,6 +10,7 @@ export const apiUrl = {
   tri:  host + 'products/tri',
   shoppingCart: host + 'shoppingCart',
   users: host + 'users',
+  admins: host + 'admins',
   sortAlphabetically: host + 'products/sort',
   sortPrice: host + 'products/sortPrice'
 };

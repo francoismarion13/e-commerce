@@ -22,6 +22,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PaymentsComponent } from './payments/payments.component';
     SideBarComponent,
     JwPaginationComponent,
     UserConnectComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    AdminAuthComponent
   ],
   imports: [
     BrowserModule,

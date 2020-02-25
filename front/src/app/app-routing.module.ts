@@ -8,6 +8,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,8 +40,14 @@ const routes: Routes = [
       { path: ':id', component: UserProfileComponent }
     ]
   },
+  {
+    path: 'admin',
+    children: [
+      { path: '', component: AdminAuthComponent },
+    ]
+  },
   { path: 'userCreate', component: UserCreateComponent },
-  { path: 'userConnect', component: UserConnectComponent}
+  { path: 'userConnect', component: UserConnectComponent},
   { path: 'payments', component: PaymentsComponent }
 
   // { path: 'edit', component: UserEditComponent},

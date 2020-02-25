@@ -33,18 +33,11 @@ GET http://localhost:8080/
 /////////////////////////////////////////////////////////////
 GET http://localhost:8080/shoppingCart
 ################################
-GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614dfb
+GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8
 ################################
-PUT http://localhost:8080/shoppingCart/5e54fee219497674635df110
-Content-Type: application/json
+DELETE http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8/product/5e4d49d80a3d603d6e4fdcdc
 
-{
-    "_id": "5e4d49d80a3d603d6e4fdcdd",
-    "name": "Y-find", 
-    "price": 3860822993,
-    "qte": 4, 
-    "img": ""
-}
+# db.getCollection("carts").deleteOne({}, { $pull: { products: { _id: "5e4d49d80a3d603d6e4fdcdc" } } }, {multi:true})
 ################################
 
 /////////////////////////////////////////////////////////////
@@ -83,7 +76,7 @@ Content-Type: application/json
     "username": "francoisdevtest",
     "password": "francois13"
 }
-########################
-########
-GET http://localhost:8080/payments
+################################
+
+GET http://localhost:8080/admins
 ################################

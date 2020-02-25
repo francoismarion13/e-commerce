@@ -10,6 +10,8 @@ const categoriesRouter = require('./routes/categories');
 const cartsRouter = require('./routes/shoppingCart');
 const usersRouter = require('./routes/users');
 const paymentsRouter = require('./routes/payments');
+const adminsRouter = require('./routes/admins');
+
 
 var app = express();
 //middleware/config server
@@ -23,6 +25,8 @@ app.use("/shoppingCart", cartsRouter);
 app.use("/users", usersRouter);
 app.use("/", homeRouter); 
 app.use("/payments", paymentsRouter);
+app.use("/admins", adminsRouter);
+app.use("/", homeRouter);
 
 //connexion
 mongoose.set('useFindAndModify', false);
