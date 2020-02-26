@@ -47,7 +47,6 @@ router.post('/login', jsonParser, async (req, res) => {
         });
         res.status(200).json(userProfile);
     } catch (err) {
-        console.log("User not found")
         throw err;
     }
 });
@@ -56,37 +55,35 @@ router.put('/:id', jsonParser, async (req, res) => {
     try {
         let userUpdated = await User.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true });
         res.status(202).send(userUpdated);
-        console.log(userUpdated)
     } catch (err) {
         throw err;
     }
 });
 
-// router.put('/:id', jsonParser, async (req,res) => {
-//     try{
-//         // req.params.cards.foreach(async e => {
-//         //     await User.findOneAndUpdate({ _id: req.params._id }, { $pull: { cards: { 
-//         //         _id: req.body._id } } }, { new: true });
-//         // })
-//         // req.params.cards.foreach(async e => {
-//         //     await User.findOneAndUpdate({ _id: req.params._id }, { $pull: { adresses: { 
-//         //         _id: req.body._id } } }, { new: true });
-//         // })
-//         let userUpdated = await User.updateOne({ _id: req.params._id }, {
-//             $set: {
-//                 gender: req.body.gender,
-//                 lastname: req.body.lastname,
-//                 firstname: req.body.firstname,
-//                 dateOfBirth: req.body.dateOfBirth,
-//                 username: req.body.username,
-//                 password: req.body.password,
-//                 email: req.body.email,
-//                 phone: req.body.phone
-//             }
-//         });
-//         res.status(202).send('User updated :\n' + userUpdated);
-//     }catch(err){
-//         throw err;
-//     }
-// });
+router.put('/:id/card/:idCard', jsonParser, async (req, res) => {
+    try {
+        let cardUpdate = await User.findOneAndUpdate(
+            {_id: req.params.id }, 
+            { $pull: { cards: { _id: req.params.idCard } } },
+            false
+        )
+        res.status(202).send(cardUpdate);
+    }catch(err){
+        throw err;
+    }
+})
+
+router.put('/:id/adresse/:idAdresse', jsonParser, async (req, res) => {
+    try {
+        let adresseUpdate = await User.findOneAndUpdate(
+            {_id: req.params.id }, 
+            { $pull: { adresses: { _id: req.params.idAdresse } } },
+            false
+        )
+        res.status(202).send(adresseUpdate);
+    }catch(err){
+        throw err;
+    }
+})
+
 module.exports = router;

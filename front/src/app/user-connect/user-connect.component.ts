@@ -13,6 +13,7 @@ export class UserConnectComponent implements OnInit {
   username;
   password;
   userId;
+  isLogged: boolean;
 
   constructor(private uS: UserServiceService, private routes: Router) { }
 

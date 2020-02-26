@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.name='';
     this.cS.getCategory().subscribe(data => {this.categories = data; });
-    this.activeUser = sessionGlobal.activeUser._id;
+    this.activeUser = sessionGlobal.activeUser ? sessionGlobal.activeUser._id : null;
   }
 
   getProduct(){
