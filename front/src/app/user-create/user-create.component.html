@@ -103,7 +103,7 @@
             </div>
             <div><input [(ngModel)]="add2" type="text" name="add2" class="form-control"
                 id="add2" placeholder="Adresse 2"></div>
-            <div><input [(ngModel)]="cp" type="text" name="cp" class="form-control"
+            <div><input [(ngModel)]="cp" type="number" name="cp" class="form-control"
                 id="cp" placeholder="Code postal"></div>
             <div *ngIf="cp == null && presChecked">
                 <p class="text-danger">* champ obligatoire</p>

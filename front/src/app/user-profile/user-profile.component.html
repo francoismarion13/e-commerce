@@ -1,90 +1,158 @@
 <form class="container form-group" (submit)="onUpdate($event)">
     <app-menu></app-menu>
     <h1>Mon profil</h1>
-    <strong>Genre : </strong>
-    <div>
+    Genre :
+    <div class="ml-4">
         <div class="form-check form-check-inline">
-            <input type="radio" [(ngModel)]="user.gender" class="form-check-input" 
-                id="genre1" name="genre" value="Monsieur" checked>
-            <label class="form-check-label" for="genre1">Monsieur</label>
-        </div>
-        
-        <div class="form-check form-check-inline">
-            <input type="radio" [(ngModel)]="user.gender" class="form-check-input" 
-                id="genre2" name="genre" value="Madame">
-            <label class="form-check-label" for="genre2">Madame</label>
-        </div>
-        <!-- <div class="form-check form-check-inline">
-            <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender" 
-                class="form-check-input" id="genre1" name="genre" [checked]="user.gender == 'Monsieur'">
-            <label class="form-check-label" for="genre1">Monsieur</label>
+            <label class="form-check-label">
+                <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender = $event"
+                    class="form-check-input" name="genre" value="Monsieur" [checked]="user?.gender == 'Monsieur'">
+                Monsieur</label>
         </div>
         <div class="form-check form-check-inline">
-            <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender" 
-                class="form-check-input" id="genre2" name="genre" [checked]="user.gender == 'Madame'">
-            <label class="form-check-label" for="genre2">Madame</label>
-        </div> -->
+            <label class="form-check-label">
+
+                <input type="radio" [ngModel]="user?.gender" (ngModelChange)="user.gender = $event"
+                    class="form-check-input" name="genre" value="Madame" [checked]="user?.gender == 'Madame'">
+                Madame</label>
+        </div>
     </div>
+
     <p>
-        <strong>Nom : </strong> {{user.lastname}}
-        <input [(ngModel)]="user.lastname" 
-            name="lastname" type="text" class="form-control" id="lastname" placeholder="Nom">
+        Nom :
+        <input [ngModel]="user?.lastname" (ngModelChange)="user.lastname = $event" name="lastname" type="text"
+            class="form-control" id="lastname" placeholder="Nom">
     </p>
+
     <p>
-        <strong>Prénom : </strong>
-        <input [(ngModel)]="user.firstname"
-            name="firstname" type="text" class="form-control" id="firstname"
-            placeholder="Prénom">
+        Prénom :
+        <input [ngModel]="user?.firstname" (ngModelChange)="user.firstname = $event" name="firstname" type="text"
+            class="form-control" id="firstname" placeholder="Prénom">
     </p>
+
     <p>
-        <strong>Date de naissance : </strong>
-        <input [(ngModel)]="user.dateOfBirth" 
-            name="dateofbirth" type="text" class="form-control" id="dateofbirth"
-            placeholder="Date de naissance">
+        Date de naissance :
+        <input [ngModel]="user?.dateOfBirth" (ngModelChange)="user.dateOfBirth = $event" name="dateofbirth" type="text"
+            class="form-control" id="dateofbirth" placeholder="Date de naissance">
     </p>
+
     <p>
-        <strong>Username : </strong>
-        <input [(ngModel)]="user.username" name="username" 
-            type="text" class="form-control" id="username" placeholder="Login">
+        Username :
+        <input [ngModel]="user?.username" (ngModelChange)="user.username = $event" name="username" type="text"
+            class="form-control" id="username" placeholder="Login">
     </p>
+
     <p>
-        <strong>Password : </strong>
-        <input [(ngModel)]="user.password" name="password"
-            type="password" class="form-control" id="password" placeholder="Mot de passe">
+        Password :
+        <input [ngModel]="user?.password" (ngModelChange)="user.password = $event" name="password" type="password"
+            class="form-control" id="password" placeholder="Mot de passe">
     </p>
+
     <p>
-        <strong>Courriel : </strong>
-        <input [(ngModel)]="user.email" name="email" 
-            type="text" class="form-control" id="email" placeholder="Courriel">
+        Courriel :
+        <input [ngModel]="user?.email" (ngModelChange)="user.email = $event" name="email" type="text"
+            class="form-control" id="email" placeholder="Courriel">
     </p>
+    
     <p>
-        <strong>Téléphone : </strong>
-        <input [(ngModel)]="user.phone"  name="phone" 
-            type="text" class="form-control" id="phone" placeholder="Téléphone">
+        Téléphone :
+        <input [ngModel]="user?.phone" (ngModelChange)="user.phone = $event" name="phone" type="text"
+            class="form-control" id="phone" placeholder="Téléphone">
     </p>
+
     <strong>Cartes enregistrées : </strong>
-    <div *ngFor="let card of user?.cards; index as i">
-        <div>Carte :</div>
-        <input [(ngModel)]="card.cardNumber" 
-            name="cardNumber[{{i}}]" type="text" class="form-control" placeholder="N° de carte">
-        <input [(ngModel)]="card.cardUserName" 
-            name="cardUserName[{{i}}]" type="text" class="form-control" placeholder="Nom figurant sur la carte">
-        <input [(ngModel)]="card.cardDate" 
-            name="cardDate[{{i}}]" type="text" class="form-control" placeholder="Date de validité">
-        <input [(ngModel)]="card.cardSecretVerif" 
-            name="cardSecretVerif[{{i}}]" type="text" class="form-control" placeholder="Code secret">
+    <button type="button" class="btn btn-primary btn-sm" name="addCard" data-toggle="modal" 
+        data-target="#newCard">Ajouter</button>
+    <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
+    <div class="modal fade" id="newCard" tabindex="-1" role="dialog" aria-labelledby="newCard"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newCard">Ajouter une nouvelle carte de paiement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input ngModel (ngModelChange)="newCard.cardNumber = $event" name="cardNumber"
+                        type="number" class="form-control" placeholder="N° de carte">
+                    <input ngModel (ngModelChange)="newCard.cardUserName = $event" name="cardUserName"
+                        type="text" class="form-control" placeholder="Nom figurant sur la carte">
+                    <input ngModel (ngModelChange)="newCard.cardDate = $event" name="cardDate" type="text"
+                        class="form-control" placeholder="Code postal">
+                    <input ngModel (ngModelChange)="newCard.cardSecretVerif = $event"
+                        name="cardSecretVerif" type="text" class="form-control" placeholder="cardSecretVerif">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" (click)="addCard()">Enregistrer</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div *ngFor="let card of user?.cards; index as i">
+        <div>
+            Carte : <button type="button" class="btn btn-danger btn-sm" name="delCard[{{i}}]" 
+                (click)="delCard(card)">Suppr.</button>
+        </div>
+        <input [ngModel]="card?.cardNumber" (ngModelChange)="card.cardNumber = $event" 
+            name="cardNumber[{{i}}]" type="text" class="form-control" placeholder="N° de carte">
+        <input [ngModel]="card?.cardUserName" (ngModelChange)="card.cardUserName = $event" 
+            name="cardUserName[{{i}}]" type="text" class="form-control" placeholder="Nom figurant sur la carte">
+        <input [ngModel]="card?.cardDate" (ngModelChange)="card.cardDate = $event" name="cardDate[{{i}}]" 
+            type="text" class="form-control" placeholder="Date de validité">
+        <input [ngModel]="card?.cardSecretVerif" (ngModelChange)="card.cardSecretVerif = $event"    
+            name="cardSecretVerif[{{i}}]" type="text" class="form-control" placeholder="Code secret">
+        <p></p>
+    </div>
+
     <strong>Adresses enregistrées : </strong>
+    <button type="button" class="btn btn-primary btn-sm" name="addAddr" data-toggle="modal" 
+        data-target="#newAddress">Ajouter</button>
+    <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
+    <div class="modal fade" id="newAddress" tabindex="-1" role="dialog" aria-labelledby="modalAdresseLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAdresseLabel">Ajouter une nouvelle adresse</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input ngModel (ngModelChange)="newAdress.adresse1 = $event" name="adresse1" type="text"
+                        class="form-control" placeholder="Adresse 1">
+                    <input ngModel (ngModelChange)="newAdress.adresse2 = $event" name="adresse2" type="text"
+                        class="form-control" placeholder="Adresse 2">
+                    <input ngModel (ngModelChange)="newAdress.codePostal = $event" name="codePostal" type="text" class="form-control" placeholder="Code postal">
+                    <input ngModel (ngModelChange)="newAdress.ville = $event" name="ville" type="text"
+                        class="form-control" placeholder="Ville">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" (click)="addAdress()">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div *ngFor="let adresse of user?.adresses; index as i">
-        <div>Adresse :</div>
-        <input [(ngModel)]="adresse.adresse1" 
-        name="adresse[{{i}}]" type="text" class="form-control" placeholder="Adresse 1">
-        <input [(ngModel)]="adresse.adresse2" 
-        name="complement[{{i}}]" type="text" class="form-control" placeholder="Adresse 2">
-        <input [(ngModel)]="adresse.codePostal" 
-        name="codePostal[{{i}}]" type="text" class="form-control" placeholder="Code postal">
-        <input [(ngModel)]="adresse.ville"  
-        name="ville[{{i}}]" type="text" class="form-control" placeholder="Ville">
+        <div>
+            Adresse : <button type="button" class="btn btn-danger btn-sm" name="delAdress[{{i}}]"
+                (click)="delAdress(adresse)">Suppr.</button>
+        </div>
+        <input [ngModel]="adresse?.adresse1" (ngModelChange)="adresse.adresse1 = $event" 
+            name="adresse[{{i}}]" type="text" class="form-control" placeholder="Adresse 1">
+        <input [ngModel]="adresse?.adresse2" (ngModelChange)="adresse.adresse2 = $event"
+            name="complement[{{i}}]" type="text" class="form-control" placeholder="Adresse 2">
+        <input [ngModel]="adresse?.codePostal" (ngModelChange)="adresse.codePostal = $event"
+            name="codePostal[{{i}}]" type="text" class="form-control" placeholder="Code postal">
+        <input [ngModel]="adresse?.ville" (ngModelChange)="adresse.ville = $event" 
+            name="ville[{{i}}]" type="text" class="form-control" placeholder="Ville">
+        <p></p>
     </div>
     <p></p>
     <div class="form-group">

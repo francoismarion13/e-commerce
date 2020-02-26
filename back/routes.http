@@ -90,6 +90,7 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
 }
+################################
 PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372
 Content-Type: application/json
 
@@ -114,3 +115,6 @@ Content-Type: application/json
     ]
 }
 ################################
+PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372/adresse/5e55496ff1e8c62f68e65474
+################################
+PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372/card/5e55496ff1e8c62f68e65476
