@@ -15,7 +15,7 @@ export class UserConnectComponent implements OnInit {
   username;
   password;
   userId;
-  isLogged: boolean;
+  //isLogged: boolean;
 
   constructor(private uS: UserServiceService, private routes: Router, private sC: ShoppingCartService) { }
 
@@ -32,6 +32,8 @@ export class UserConnectComponent implements OnInit {
       this.sC.getCartByIdUser(this.loggedUser._id).subscribe(data => {
         sessionGlobalCart.activeCart = data;
       })
+      this.loggedUser != null ? this.uS.isLogged = true : this.uS.isLogged = false;
+
       this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id]);
     })
   }

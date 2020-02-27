@@ -3,3 +3,15 @@
     margin-top: 5px;
 }
 
+.list-group > a:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: #FBF8EF;
+}
+
+a:hover {
+    color: #08088A;
+    text-decoration: underline;
+}
+
+

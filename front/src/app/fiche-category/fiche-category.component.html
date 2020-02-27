@@ -1,5 +1,6 @@
 
- <!-- Page Content -->
+
+<!-- Page Content -->
  <div class="container">
     <app-menu></app-menu>
     <div class="row">
@@ -8,12 +9,9 @@
 
         <div class="border-sideBar">
 
-
-
-
           <div class="list-group" style="height: auto !important;">
             <div class="list-group-item active">
-                <h4 class="list-group-item-heading">Choisir votre produit</h4>
+                <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-list mr-4"></span>Choisir votre produit</h4>
                 <p class="list-group-item-text">Vous pouvez filtrer les résultats obtenues.</p>
             </div>
             <div class="list-group-item">
@@ -53,9 +51,6 @@
                   </fieldset>
                </div>
                 
-
-
-              
           </div>
             <div class="list-group-item" style="height: auto !important;">
                 <h4 class="list-group-item-heading">Filtre par Prix</h4>
@@ -83,9 +78,23 @@
         </div>
 
 
-
-  
       </div>
+
+      <div class="list-group" style="height: auto !important;margin-top: 10px;">
+        <div class="list-group-item active">
+            <h5 class="list-group-item active"><span class="glyphicon glyphicon-list mr-4" ></span >Produits Phares</h5>
+        </div>
+        <div class="list-group-item">
+            
+            <div class="list-group-item-text" *ngFor="let product of productsL; index as i">
+              <p class="list-group-item-text"></p>
+              <h5 *ngIf="i+1<7"><a style="color: black" routerLink="/product/{{product._id}}"><span class="glyphicon glyphicon-chevron-right mr-2"></span>{{product.name}}</a></h5>
+            </div>
+        </div>
+       
+    </div>
+
+
       </div>
       <!-- /.col-lg-3 -->
 
@@ -100,18 +109,18 @@
         </div>
       
       
-        <ng-template #elseBlock>
+       
 
           <div class="row">
           
             <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of affichage; index as i" >
-              
-                <a href="#"><img class="card-img-top" [height]="300" src="../assets/{{product.images}}.jpg" alt=""></a>
+              <div class="card h-100" *ngIf="i+1<50">
+                <a href="#" ><img class="card-img-top" [height]="250" src="../assets/{{product.images}}.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                       <a routerLink="/product/{{product._id}}">{{product.name}}</a>
                   </h4>
-                  <h5 style="color: red">{{product.price}} $</h5>
+                  <h5 style="color: red">{{product.price}} €</h5>
                   <h5 >Taille:  {{product.size | uppercase}}</h5>
 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -122,24 +131,12 @@
                   </a>
                   <small class="text-muted" > &#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
-              
+              </div>
             </div>
           
             </div>
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary">1</button>
-                <button type="button" class="btn btn-secondary">2</button>
-                <button type="button" class="btn btn-secondary">3</button>
-                <button type="button" class="btn btn-secondary">4</button>
-              </div>
-              <div class="btn-group" role="group" aria-label="Third group">
-                <button type="button" class="btn btn-secondary">8</button>
-              </div>
-            </div>
+           
 
-
-        </ng-template>
     
         <!-- /.row -->
 

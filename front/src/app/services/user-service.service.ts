@@ -7,7 +7,8 @@ import { sessionGlobalUser } from './../../environments/environment'
   providedIn: 'root'
 })
 export class UserServiceService {
-  
+  userIsLogged:boolean =false;
+  isLogged:boolean =false;
   userLogged
 
   constructor(private http: HttpClient) {

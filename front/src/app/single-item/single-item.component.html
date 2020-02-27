@@ -1,35 +1,75 @@
-<div class="container">
+
+
+  <!-- Page Content -->
+  <div class="container">
     <app-menu></app-menu>
-    <div class="row ">
-        <div class="col-xs-10 col-sm-8 col-md-6"  >
-            <img src="./../assets/{{product.images}}.jpg" alt="{{product?.name}}" style="max-height: 450px; max-width: 400px; position: fixed">
-        </div>
+    <div class="row">
 
-        <!--  information produit -->
-        <div class="col-xs-10 col-sm-8 col-md-6"  >
-            <div >
-                <a routerLink="/home">retour a la page des produit </a>
-                <h1>ame :{{product.name | uppercase }}</h1>
-                
-                <h4><b>Price :{{ product.price | uppercase }}</b></h4>
-                <br>
-
-                <label><b>Details: </b></label>
-                <br>
-                {{product.descripdescription_short}}
-                <br>
-                <br>
-                <label><i>Give a rating below!!</i></label>
-                <label><b>Reviews by users:</b></label>
-                <br>
-                <div>
-                <h5>On 21/02/2020 a User commande </h5>
-                </div>
-                <br>
-
-                <Label for="reviewComment"><b>Leave a review below!</b></Label> 
-                <button type="button" class="btn btn-primary">  <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button>
+      <div class="col-lg-3">
+        <h2 class="my-4">F.A.N.S Boutique</h2>
+        <div class="list-group" *ngFor="let category of categorys; index as i;">
+            <div class="card h-100" *ngIf="i==0">
+                <div class="list-group-item active"><span class="glyphicon glyphicon-list mr-3"></span>Category</div>
             </div>
+            <a  routerLink="category/{{category._id}}" class="list-group-item">{{category.name}}</a>
         </div>
-    </div> 
-</div>
+
+        <div class="list-group" style="height: auto !important;margin-top: 10px;">
+            <div class="list-group-item active">
+                <h5 class="list-group-item active"><span class="glyphicon glyphicon-list mr-4" ></span >Produits Phares</h5>
+            </div>
+            <div class="list-group-item">
+                
+                <div class="list-group-item-text" *ngFor="let product of products; index as i">
+                  <p class="list-group-item-text"></p>
+                  <h5 *ngIf="i+1<7"><a style="color: black" routerLink="/product/{{product._id}}"><span class="glyphicon glyphicon-chevron-right mr-2"></span>{{product.name}}</a></h5>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src="./../assets/{{product.images}}.jpg" alt="{{product?.name}}">
+          <div class="card-body">
+            <h3 class="card-title">{{product.name | uppercase }}</h3>
+            <h4>{{product.price}} €</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+          </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Product Reviews
+          </div>
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <a routerLink="/home" class="btn btn-success">continuer vos achats</a>
+            <button type="button" class="btn btn-primary ml-5">  <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button>
+          </div>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+  <!-- /.container -->
+  <app-footer></app-footer>

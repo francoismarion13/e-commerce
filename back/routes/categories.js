@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const categories = require('../models/categorie');
+const Categorie = require('../models/categorie');
 const url = require('url');
 const jsonParser = require('body-parser').json();
 
 
 router.get('/', async (req, res) => {
     try {
-        categoriesList = await categories.find();
+        categoriesList = await Categorie.find();
         res.json(categoriesList);
     } catch (err) { throw err }
   })
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
   router.get('/:id', async function(req,res){ 
     try {
-        let categorie = await categories.findOne({ _id: req.params.id });
+        let categorie = await Categorie.findOne({ _id: req.params.id });
         res.json(categorie);
       } catch (err) { throw err; }
     })
