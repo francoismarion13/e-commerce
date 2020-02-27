@@ -2,14 +2,15 @@ const router = require('express').Router();
 const carts = require('../models/shoppingCart');
 const jsonParser = require('body-parser').json();
 const mongoose = require('mongoose');
-// router.get('/', async (req, res) => {
-//     try {
-//         cartList = await carts.find();
-//         res.json(cartList);
-//     }catch (err) {
-//         throw err
-//     }
-// })
+
+router.get('/', async (req, res) => {
+    try {
+        cartList = await carts.find();
+        res.json(cartList);
+    }catch (err) {
+        throw err
+    }
+})
 
 router.get('/:id', async function (req, res) {
     try {
@@ -20,6 +21,14 @@ router.get('/:id', async function (req, res) {
     }
 })
 
+router.get('/userCart/:id', async function (req, res) {
+    try {
+        let cart = await carts.findOne({ id_user: req.params.id });
+        res.json(cart);
+    } catch (err) {
+        throw err;
+    }
+}) 
 // router.post('/', jsonParser, async (req, res) => {
 //     try {
 //         let cart = new products(req.body)

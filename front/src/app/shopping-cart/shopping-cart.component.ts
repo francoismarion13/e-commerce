@@ -3,6 +3,8 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Cart } from '../classes/cart'
 import { ProductService } from '../services/product.service';
+import { sessionGlobalUser } from './../../environments/environment'
+import { sessionGlobalCart } from './../../environments/environment'
 
 @Component({
   selector: 'app-shopping-cart',

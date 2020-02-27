@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from '../services/product.service';
 import { UserServiceService } from '../services/user-service.service';
-import { sessionGlobal } from './../../environments/environment';
+import { sessionGlobalUser, sessionGlobalCart } from './../../environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -14,13 +14,17 @@ export class MenuComponent implements OnInit {
   products;
   categories;
   activeUser;
+  activeCart;
 
   constructor(private cS: CategoryService, private pS: ProductService, private uS: UserServiceService) { }
 
   ngOnInit() {
     this.name='';
     this.cS.getCategory().subscribe(data => {this.categories = data; });
-    this.activeUser = sessionGlobal.activeUser ? sessionGlobal.activeUser._id : null;
+    this.activeUser = sessionGlobalUser.activeUser ? sessionGlobalUser.activeUser._id : null;
+    this.activeUser = sessionGlobalUser.activeUser ? sessionGlobalUser.activeUser._id : null;
+    this.activeCart = sessionGlobalCart.activeCart ? sessionGlobalCart.activeCart._id : null;
+    console.log(this.activeCart)
   }
 
   getProduct(){
@@ -30,6 +34,6 @@ export class MenuComponent implements OnInit {
   }
 
   logoutUser(){
-    this.uS.logoutUser(sessionGlobal.activeUser);
+    this.uS.logoutUser(sessionGlobalUser.activeUser);
   }
 }

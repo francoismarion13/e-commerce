@@ -10,8 +10,10 @@ export class ShoppingCartService {
   constructor(private http: HttpClient) { }
   
   getCartById(id){
-    console.log(id)
     return this.http.get(apiUrl.shoppingCart+'/'+id);
+  }
+  getCartByIdUser(idUser){
+    return this.http.get(apiUrl.shoppingCart+'/userCart/'+idUser);
   }
   validateCart(){
     //return this.http.updateOne(apiUrl.cart);

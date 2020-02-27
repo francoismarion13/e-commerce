@@ -1,6 +1,6 @@
 
 export class Cart {
-    id_user: number;
+    id_user: string;
     is_validate: boolean;
     _id;
     products: {

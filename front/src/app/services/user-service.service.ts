@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { apiUrl } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { sessionGlobal } from './../../environments/environment'
+import { sessionGlobalUser } from './../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class UserServiceService {
   }
 
   logoutUser(user){
-    sessionGlobal.activeUser = null;
+    sessionGlobalUser.activeUser = null;
     this.userLogged = null;
   }
 }

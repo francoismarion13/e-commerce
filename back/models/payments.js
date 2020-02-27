@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+var ObjectId = require('mongodb').ObjectID;
 
 const paymentSchema = new mongoose.Schema({
     id_cart: {type :Number, required : true},
-    id_user: {type :Number},
+    id_user: { type: ObjectId },
     lastname: { type: String, required : true },
     firstname: { type: String, required : true },
     email: { type: String, required: true },

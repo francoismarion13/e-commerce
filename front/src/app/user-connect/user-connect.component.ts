@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
-import { sessionGlobal } from './../../environments/environment';
+import { sessionGlobalUser } from './../../environments/environment';
+import { sessionGlobalCart } from './../../environments/environment';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-user-connect',
@@ -15,7 +17,7 @@ export class UserConnectComponent implements OnInit {
   userId;
   isLogged: boolean;
 
-  constructor(private uS: UserServiceService, private routes: Router) { }
+  constructor(private uS: UserServiceService, private routes: Router, private sC: ShoppingCartService) { }
 
   ngOnInit() {
     this.username = '';
@@ -24,9 +26,13 @@ export class UserConnectComponent implements OnInit {
   onLogin(e){
     e.preventDefault();
     this.uS.loginUser(this.username, this.password).subscribe(data => {
-      sessionGlobal.activeUser = data;
+      sessionGlobalUser.activeUser = data;
       this.loggedUser = data;
-      this.routes.navigate(['/userProfile/'+(sessionGlobal.activeUser)._id]);
+
+      this.sC.getCartByIdUser(this.loggedUser._id).subscribe(data => {
+        sessionGlobalCart.activeCart = data;
+      })
+      this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id]);
     })
   }
 }
