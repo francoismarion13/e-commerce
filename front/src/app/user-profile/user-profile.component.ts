@@ -36,6 +36,9 @@ export class UserProfileComponent implements OnInit {
     cardDate: String,
     cardSecretVerif: String
   }
+  suppAdOK: boolean;
+  suppCardOK: boolean;
+  updateOK: boolean;
 
   constructor(private uS: UserServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -46,14 +49,17 @@ export class UserProfileComponent implements OnInit {
         this.user = data;
       })
     });
+    this.suppAdOK = true;
+    this.suppCardOK = true;
+    this.updateOK = false;
   }
 
-  onUpdate(e){
-    e.preventDefault();
+  onUpdate(){
+    //e.preventDefault();
     this.uS.updateUser(this.user).subscribe( data => {
       sessionGlobalUser.activeUser = data;
-      alert('Mise(s) à jour bien effectuée(s)');
       this.router.navigate(['/userProfile/'+sessionGlobalUser.activeUser._id]);
+      this.updateOK = true;
     });
   }
 
@@ -61,21 +67,22 @@ export class UserProfileComponent implements OnInit {
     if(this.newAdress != null){
       sessionGlobalUser.activeUser.adresses.push(this.newAdress);
       this.user = sessionGlobalUser.activeUser;
-      alert(`Nouvelle adresse ajoutée !\nMerci de cliquer sur le bouton Updater une fois vos modifications effectuées`);
+      this.onUpdate();
+      this.newAdress = null;
     }
   }
   
   delAdress(adresse){
     let temp;
     if(sessionGlobalUser.activeUser.adresses.length == 1){
-      alert('Vous ne pouvez pas supprimer votre seule et unique adresse !')
+      this.suppAdOK = false;
     }else{
-      for(let i = 0; i < sessionGlobalUser.activeUser.adresses.length; i++ ){
+      for(let i = 0; i <= sessionGlobalUser.activeUser.adresses.length-1; i++ ){
         if(sessionGlobalUser.activeUser.adresses[i]._id == adresse._id) temp = i;
       }
       sessionGlobalUser.activeUser.adresses.splice(temp);
       this.user = sessionGlobalUser.activeUser;
-      alert(`Adresse supprimée !\nMerci de cliquer sur le bouton Updater une fois vos modifications effectuées`);
+      this.onUpdate();
     }
   }
 
@@ -83,21 +90,22 @@ export class UserProfileComponent implements OnInit {
     if(this.newCard != null){
       sessionGlobalUser.activeUser.cards.push(this.newCard);
       this.user = sessionGlobalUser.activeUser;
-      alert(`Nouvelle carte ajoutée !\nMerci de cliquer sur le bouton Updater une fois vos modifications effectuées`);
+      this.onUpdate();
+      this.newCard = null;
     }
   }
   
   delCard(card){
     let temp;
     if(sessionGlobalUser.activeUser.cards.length == 1){
-      alert('Vous ne pouvez pas supprimer votre seule et unique moyen de paiement !')
+      this.suppCardOK = false;
     }else{
-      for(let i = 0; i < sessionGlobalUser.activeUser.cards.length; i++ ){
+      for(let i = 0; i <= sessionGlobalUser.activeUser.cards.length -1; i++ ){
         if(sessionGlobalUser.activeUser.cards[i]._id == card._id) temp = i;
       }
       sessionGlobalUser.activeUser.cards.splice(temp);
       this.user = sessionGlobalUser.activeUser;
-      alert(`Carte supprimée !\nMerci de cliquer sur le bouton Updater une fois vos modifications effectuées`);
+      this.onUpdate();
     }
   }
 }

@@ -10,6 +10,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
   templateUrl: './user-connect.component.html',
   styleUrls: ['./user-connect.component.css']
 })
+
 export class UserConnectComponent implements OnInit {
   loggedUser;
   username;
@@ -17,7 +18,7 @@ export class UserConnectComponent implements OnInit {
   userId;
   //isLogged: boolean;
 
-  constructor(private uS: UserServiceService, private routes: Router, private sC: ShoppingCartService) { }
+  constructor(private uS: UserServiceService, private scS: ShoppingCartService, private routes: Router) { }
 
   ngOnInit() {
     this.username = '';

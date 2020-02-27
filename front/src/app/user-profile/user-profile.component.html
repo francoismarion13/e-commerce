@@ -1,4 +1,4 @@
-<form class="container form-group" (submit)="onUpdate($event)">
+<form class="container form-group" (submit)="onUpdate()">
     <app-menu></app-menu>
     <h1>Mon profil</h1>
     Genre :
@@ -59,103 +59,114 @@
         <input [ngModel]="user?.phone" (ngModelChange)="user.phone = $event" name="phone" type="text"
             class="form-control" id="phone" placeholder="Téléphone">
     </p>
-
-    <strong>Cartes enregistrées : </strong>
-    <button type="button" class="btn btn-primary btn-sm" name="addCard" data-toggle="modal" 
-        data-target="#newCard">Ajouter</button>
-    <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
-    <div class="modal fade" id="newCard" tabindex="-1" role="dialog" aria-labelledby="newCard"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newCard">Ajouter une nouvelle carte de paiement</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input ngModel (ngModelChange)="newCard.cardNumber = $event" name="cardNumber"
-                        type="number" class="form-control" placeholder="N° de carte">
-                    <input ngModel (ngModelChange)="newCard.cardUserName = $event" name="cardUserName"
-                        type="text" class="form-control" placeholder="Nom figurant sur la carte">
-                    <input ngModel (ngModelChange)="newCard.cardDate = $event" name="cardDate" type="text"
-                        class="form-control" placeholder="Code postal">
-                    <input ngModel (ngModelChange)="newCard.cardSecretVerif = $event"
-                        name="cardSecretVerif" type="text" class="form-control" placeholder="cardSecretVerif">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary" (click)="addCard()">Enregistrer</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div *ngFor="let card of user?.cards; index as i">
-        <div>
-            Carte : <button type="button" class="btn btn-danger btn-sm" name="delCard[{{i}}]" 
-                (click)="delCard(card)">Suppr.</button>
-        </div>
-        <input [ngModel]="card?.cardNumber" (ngModelChange)="card.cardNumber = $event" 
-            name="cardNumber[{{i}}]" type="text" class="form-control" placeholder="N° de carte">
-        <input [ngModel]="card?.cardUserName" (ngModelChange)="card.cardUserName = $event" 
-            name="cardUserName[{{i}}]" type="text" class="form-control" placeholder="Nom figurant sur la carte">
-        <input [ngModel]="card?.cardDate" (ngModelChange)="card.cardDate = $event" name="cardDate[{{i}}]" 
-            type="text" class="form-control" placeholder="Date de validité">
-        <input [ngModel]="card?.cardSecretVerif" (ngModelChange)="card.cardSecretVerif = $event"    
-            name="cardSecretVerif[{{i}}]" type="text" class="form-control" placeholder="Code secret">
-        <p></p>
-    </div>
-
-    <strong>Adresses enregistrées : </strong>
-    <button type="button" class="btn btn-primary btn-sm" name="addAddr" data-toggle="modal" 
-        data-target="#newAddress">Ajouter</button>
-    <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
-    <div class="modal fade" id="newAddress" tabindex="-1" role="dialog" aria-labelledby="modalAdresseLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalAdresseLabel">Ajouter une nouvelle adresse</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input ngModel (ngModelChange)="newAdress.adresse1 = $event" name="adresse1" type="text"
-                        class="form-control" placeholder="Adresse 1">
-                    <input ngModel (ngModelChange)="newAdress.adresse2 = $event" name="adresse2" type="text"
-                        class="form-control" placeholder="Adresse 2">
-                    <input ngModel (ngModelChange)="newAdress.codePostal = $event" name="codePostal" type="text" class="form-control" placeholder="Code postal">
-                    <input ngModel (ngModelChange)="newAdress.ville = $event" name="ville" type="text"
-                        class="form-control" placeholder="Ville">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary" (click)="addAdress()">Enregistrer</button>
+    <div>
+        <strong>Cartes enregistrées : </strong>
+        <button type="button" class="btn btn-primary btn-sm" name="addCard" data-toggle="modal" 
+            data-target="#newCard">Ajouter</button>
+        <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
+        <div class="modal fade" id="newCard" tabindex="-1" role="dialog" aria-labelledby="newCard"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newCard">Ajouter une nouvelle carte de paiement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input ngModel (ngModelChange)="newCard.cardNumber = $event" name="cardNumber"
+                            type="number" class="form-control" placeholder="N° de carte">
+                        <input ngModel (ngModelChange)="newCard.cardUserName = $event" name="cardUserName"
+                            type="text" class="form-control" placeholder="Nom figurant sur la carte">
+                        <input ngModel (ngModelChange)="newCard.cardDate = $event" name="cardDate" type="text"
+                            class="form-control" placeholder="Date de validité (MM/YY)">
+                        <input ngModel (ngModelChange)="newCard.cardSecretVerif = $event"
+                            name="cardSecretVerif" type="text" class="form-control" placeholder="cardSecretVerif">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addCard()">Enregistrer</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div *ngFor="let adresse of user?.adresses; index as i">
-        <div>
-            Adresse : <button type="button" class="btn btn-danger btn-sm" name="delAdress[{{i}}]"
-                (click)="delAdress(adresse)">Suppr.</button>
+        <div *ngFor="let card of user?.cards; index as i">
+            <div>
+                Carte : <button type="button" class="btn btn-danger btn-sm" name="delCard[{{i}}]" 
+                    (click)="delCard(card)">Suppr.</button> 
+                <div *ngIf="suppCardOK === false">
+                    <p class="text-danger">Vous ne pouvez pas supprimer votre seul moyen de paiement !</p>
+                </div>
+            </div>
+            <input [ngModel]="card?.cardNumber" (ngModelChange)="card.cardNumber = $event" 
+                name="cardNumber[{{i}}]" type="text" class="form-control" placeholder="N° de carte">
+            <input [ngModel]="card?.cardUserName" (ngModelChange)="card.cardUserName = $event" 
+                name="cardUserName[{{i}}]" type="text" class="form-control" placeholder="Nom figurant sur la carte">
+            <input [ngModel]="card?.cardDate" (ngModelChange)="card.cardDate = $event" name="cardDate[{{i}}]" 
+                type="text" class="form-control" placeholder="Date de validité">
+            <input [ngModel]="card?.cardSecretVerif" (ngModelChange)="card.cardSecretVerif = $event"    
+                name="cardSecretVerif[{{i}}]" type="text" class="form-control" placeholder="Code secret">
+            <p></p>
         </div>
-        <input [ngModel]="adresse?.adresse1" (ngModelChange)="adresse.adresse1 = $event" 
-            name="adresse[{{i}}]" type="text" class="form-control" placeholder="Adresse 1">
-        <input [ngModel]="adresse?.adresse2" (ngModelChange)="adresse.adresse2 = $event"
-            name="complement[{{i}}]" type="text" class="form-control" placeholder="Adresse 2">
-        <input [ngModel]="adresse?.codePostal" (ngModelChange)="adresse.codePostal = $event"
-            name="codePostal[{{i}}]" type="text" class="form-control" placeholder="Code postal">
-        <input [ngModel]="adresse?.ville" (ngModelChange)="adresse.ville = $event" 
-            name="ville[{{i}}]" type="text" class="form-control" placeholder="Ville">
-        <p></p>
+    </div>
+    <div>
+        <strong>Adresses enregistrées : </strong>
+        <button type="button" class="btn btn-primary btn-sm" name="addAddr" data-toggle="modal" 
+            data-target="#newAddress">Ajouter</button>
+        <!-- Fenêtre modale d'ajout d'une nouvelle adresse -->
+        <div class="modal fade" id="newAddress" tabindex="-1" role="dialog" aria-labelledby="modalAdresseLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAdresseLabel">Ajouter une nouvelle adresse</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input ngModel (ngModelChange)="newAdress.adresse1 = $event" name="adresse1" type="text"
+                            class="form-control" placeholder="Adresse 1">
+                        <input ngModel (ngModelChange)="newAdress.adresse2 = $event" name="adresse2" type="text"
+                            class="form-control" placeholder="Adresse 2">
+                        <input ngModel (ngModelChange)="newAdress.codePostal = $event" name="codePostal" type="text" class="form-control" placeholder="Code postal">
+                        <input ngModel (ngModelChange)="newAdress.ville = $event" name="ville" type="text"
+                            class="form-control" placeholder="Ville">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addAdress()">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngFor="let adresse of user?.adresses; index as i">
+            <div>
+                Adresse : <button type="button" class="btn btn-danger btn-sm" name="delAdress[{{i}}]"
+                    (click)="delAdress(adresse)">Suppr.</button>  
+                <div *ngIf="suppAdOK === false">
+                    <p class="text-danger">Vous ne pouvez pas supprimer votre seul adresse de livraison !</p>
+                </div>
+            </div>
+            <input [ngModel]="adresse?.adresse1" (ngModelChange)="adresse.adresse1 = $event" 
+                name="adresse[{{i}}]" type="text" class="form-control" placeholder="Adresse 1">
+            <input [ngModel]="adresse?.adresse2" (ngModelChange)="adresse.adresse2 = $event"
+                name="complement[{{i}}]" type="text" class="form-control" placeholder="Adresse 2">
+            <input [ngModel]="adresse?.codePostal" (ngModelChange)="adresse.codePostal = $event"
+                name="codePostal[{{i}}]" type="text" class="form-control" placeholder="Code postal">
+            <input [ngModel]="adresse?.ville" (ngModelChange)="adresse.ville = $event" 
+                name="ville[{{i}}]" type="text" class="form-control" placeholder="Ville">
+            <p></p>
+        </div>
     </div>
     <p></p>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Update</button>
+        <div *ngIf="updateOK === true">
+            <p class="text-success">Mise(s) à jour bien effecutée(s) !</p>
+        </div>
     </div>
 </form>

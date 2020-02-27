@@ -30,6 +30,11 @@ export class sessionGlobalCart {
   public static activeCart;
 }
 
+//export var activeUser;
+export class sessionGlobalCart {
+  public static activeCart;
+}
+
 export class sessionGlobalAdmin {
   public static activeAdmin: any;
 }
