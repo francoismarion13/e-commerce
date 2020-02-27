@@ -15,6 +15,7 @@ export class FicheCategoryComponent implements OnInit {
   products;
   radioValue;
   radioValuePrice;
+  productsL;
   id;
  prods : String[];
  tabProctssort;
@@ -30,12 +31,14 @@ export class FicheCategoryComponent implements OnInit {
    
 
     this.route.paramMap.subscribe((params:ParamMap) => {
+      this.pS.getProduct().subscribe(data => {this.productsL = data; });
       this.id = params.get('id') ? params.get('id') : "5e4e598db07d2c4c1da1e399"
       this.cS.getCategoryById(this.id).subscribe(data => {
         this.category = data;
         this.tabProcts = this.category.products;
         this.tabProctssort = this.category.products;
         this.affichage = this.tabProcts;
+        console.log(this.category.products.images);
        /*  this.intialise("plagePrix");
         this.intialise("taille");
         this.intialise("sort"); */
@@ -50,7 +53,7 @@ export class FicheCategoryComponent implements OnInit {
   onChange(deviceValue) {
     /* this.intialise("plagePrix");
     this.intialise("taille"); */
-    this.affichage = this.tabProctssort;
+    this.affichage = [];
     
     if(deviceValue === 'alphabetical'){
       
@@ -72,9 +75,10 @@ export class FicheCategoryComponent implements OnInit {
         }
       );
     }  
+    this.affichage = this.tabProctssort;
     console.log(this.tabProctssort)
     
-    return this.tabProctssort;
+    return this.affichage;
   }
 
 
@@ -157,6 +161,11 @@ export class FicheCategoryComponent implements OnInit {
     if(select.selectedIndex != 0){
       select.selectedIndex = 0;
     }
+  }
+
+  imageIndex(i){
+    this.pS.imageIndex = i;
+    console.log(this.pS.imageIndex)
   }
  
 }

@@ -28,3 +28,8 @@
     margin-left: 5%;
 }
 
+fieldset {
+    border: 0px ;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}

@@ -12,6 +12,9 @@ import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { FourOFourComponent } from './four-o-four/four-o-four.component';
+import { AdminAuthGuard } from './services/guards/admin-auth.guard';
+import { UserAuthGuard } from './services/guards/user-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,28 +42,31 @@ const routes: Routes = [
   },
   { path: 'userProfile',
     children: [
-      { path: '', component: UserProfileComponent },
-      { path: ':id', component: UserProfileComponent }
-    ]
-  },
-  {
-    path: 'admin',
-    children: [
-      { path: '', component: AdminAuthComponent },
-      { path: 'adminHome', component: AdminHomeComponent },
-      { path: 'listProduct', component: ListProductComponent },
-      { path: 'adminProduct/:id', component: AdminProductComponent }
+      { path: '', canActivate:[UserAuthGuard], component: UserProfileComponent },
+      { path: ':id', canActivate:[UserAuthGuard], component: UserProfileComponent }
     ]
   },
   { path: 'userCreate', component: UserCreateComponent },
   { path: 'userConnect', component: UserConnectComponent},
+  {
+    path: 'admin',
+    children: [
+      { path: '', component: AdminAuthComponent },
+      { path: 'adminHome', canActivate:[AdminAuthGuard], component: AdminHomeComponent },
+      { path: 'listProduct', canActivate:[AdminAuthGuard],  component: ListProductComponent },
+      { path: 'adminProduct/:id', canActivate:[AdminAuthGuard],  component: AdminProductComponent }
+    ]
+  },
   { path: 'payments',
   children: [
     { path: '', component: PaymentsComponent },
     { path: ':id', component: PaymentsComponent }
   ]
-}
+},
 
+  
+  { path: 'not-found' , component: FourOFourComponent },
+  { path: '**' , redirectTo: 'not-found'}
 
   // { path: 'edit', component: UserEditComponent},
   // { path: 'delete', component: UserDeleteComponent}

@@ -6,6 +6,7 @@ import { apiUrlAdmin } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AdminService {
+  isAuthAdmin:boolean =false;
 
   constructor(private http: HttpClient) { 
   }

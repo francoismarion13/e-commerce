@@ -1,17 +1,35 @@
 
-
  <!-- Page Content -->
  <div class="container">
     <app-menu></app-menu>
     <div class="row">
-
       <div class="col-lg-3">
-        <h1 class="my-4">Categories</h1>
-        <div class="list-group" *ngFor="let category of categorys">
-          <a  routerLink="category/{{category._id}}" class="list-group-item">{{category.name}}</a>
+        
+        <h2 class="my-4">F.A.N.S Boutique</h2>
+        <div class="list-group" *ngFor="let category of categorys; index as i;">
+            <div class="card h-100" *ngIf="i==0">
+                <div class="list-group-item active"><span class="glyphicon glyphicon-list mr-4" ></span >Category</div>
+            </div>
+            <a  routerLink="category/{{category._id}}" class="list-group-item">{{category.name}}</a>
         </div>
 
+        <div class="list-group" style="height: auto !important;margin-top: 10px;">
+          <div class="list-group-item active">
+              <h5 class="list-group-item active"><span class="glyphicon glyphicon-list mr-4" ></span >Produits Phares</h5>
+          </div>
+          <div class="list-group-item">
+              
+              <div class="list-group-item-text" *ngFor="let product of products; index as i">
+                <p class="list-group-item-text"></p>
+                <h5 *ngIf="i+1<7"><a style="color: black" routerLink="/product/{{product._id}}"><span class="glyphicon glyphicon-chevron-right mr-2"></span>{{product.name}}</a></h5>
+              </div>
+          </div>
+         
       </div>
+
+
+
+    </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -28,7 +46,7 @@
                           <a routerLink="/product/{{product._id}}">{{product.name}}</a>
                           <a href="#"></a>
                         </h4>
-                        <h5 style="color: red">$ {{product.price}}</h5>
+                        <h5 style="color: red"> {{product.price}} €</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                       </div>
                       <a routerLink="/product/{{product._id}}">Détail</a>
@@ -39,17 +57,7 @@
                     </div>
                   </div>
                   
-                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                      <button type="button" class="btn btn-secondary">1</button>
-                      <button type="button" class="btn btn-secondary">2</button>
-                      <button type="button" class="btn btn-secondary">3</button>
-                      <button type="button" class="btn btn-secondary">4</button>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="Third group">
-                      <button type="button" class="btn btn-secondary">8</button>
-                    </div>
-                  </div>
+                 
 
         </div>
         <!-- /.row -->

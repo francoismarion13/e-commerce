@@ -27,6 +27,7 @@ import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { FourOFourComponent } from './four-o-four/four-o-four.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
     AdminAuthComponent,
     AdminHomeComponent,
     ListProductComponent,
-    AdminProductComponent
+    AdminProductComponent,
+    FourOFourComponent
   ],
   imports: [
     BrowserModule,

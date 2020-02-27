@@ -28,12 +28,12 @@ export class AdminAuthComponent implements OnInit {
       data.forEach((u) => {
         if (u.username === this.username) {
           if (u.password === this.password) {
-            this.isAuthAdmin = true;
+            this.aS.isAuthAdmin = true;
           }
         } else {
           console.log('username or password incorrect');
         }
-        if (this.isAuthAdmin) {
+        if (this.aS.isAuthAdmin) {
           this.routes.navigate(['/admin/adminHome']);
         }
 

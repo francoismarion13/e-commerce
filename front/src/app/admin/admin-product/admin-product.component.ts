@@ -22,7 +22,7 @@ export class AdminProductComponent implements OnInit {
    // console.log(this.id);
     this.Ps.getProductById(this.id).subscribe(data => {
       this.product = data; 
-      console.log(this.product);
+     // console.log(this.product);
     });
   }
 
