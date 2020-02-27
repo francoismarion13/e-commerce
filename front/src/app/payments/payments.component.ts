@@ -29,11 +29,10 @@ _id;
 
 
   }
+    submit() {
 
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-    alert("paiement accepté");
-    // this.router.navigate(['/home'])
+      window.alert("paiement accepté");
+      this.router.navigate(['/payments/accepted']);
+   }
+}
 
-}
-}

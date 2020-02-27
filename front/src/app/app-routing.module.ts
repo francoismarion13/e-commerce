@@ -12,6 +12,7 @@ import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AcceptedComponent } from './accepted/accepted.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,7 +58,7 @@ const routes: Routes = [
   { path: 'payments',
   children: [
     { path: '', component: PaymentsComponent },
-    { path: ':id', component: PaymentsComponent }
+    { path: 'accepted', component: AcceptedComponent }
   ]
 }
 

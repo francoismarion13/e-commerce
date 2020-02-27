@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit {
     this.name='';
     this.cS.getCategory().subscribe(data => {this.categories = data; });
     this.activeUser = sessionGlobalUser.activeUser ? sessionGlobalUser.activeUser._id : null;
-    this.activeUser = sessionGlobalUser.activeUser ? sessionGlobalUser.activeUser._id : null;
     this.activeCart = sessionGlobalCart.activeCart ? sessionGlobalCart.activeCart._id : null;
     console.log(this.activeCart)
   }

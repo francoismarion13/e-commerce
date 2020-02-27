@@ -32,7 +32,7 @@ export class UserConnectComponent implements OnInit {
       this.sC.getCartByIdUser(this.loggedUser._id).subscribe(data => {
         sessionGlobalCart.activeCart = data;
       })
-      this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id]);
+      this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id] );
     })
   }
 }
