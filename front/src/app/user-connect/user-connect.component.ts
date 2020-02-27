@@ -29,9 +29,10 @@ export class UserConnectComponent implements OnInit {
     this.uS.loginUser(this.username, this.password).subscribe(data => {
       sessionGlobalUser.activeUser = data;
       this.loggedUser = data;
-
-      this.sC.getCartByIdUser(this.loggedUser._id).subscribe(data => {
+      console.log(sessionGlobalUser.activeUser);
+      this.scS.getCartByIdUser(this.loggedUser._id).subscribe(data => {
         sessionGlobalCart.activeCart = data;
+        console.log(sessionGlobalCart.activeCart);
       })
       this.loggedUser != null ? this.uS.isLogged = true : this.uS.isLogged = false;
 

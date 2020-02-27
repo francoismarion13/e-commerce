@@ -1,52 +1,52 @@
-<app-menu></app-menu>
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
 <div class="container">
-	<form (ngSubmit)="onsubmit()" >
-	<table id="cart" class="table table-hover table-condensed">
-
-					<tbody>
-						
-                        <div *ngFor="let product of myCart?.products">
+	<app-menu></app-menu>
+	<div *ngIf="isLogged==null; then blockIsLogged else blockNotLogged"></div>
+	<ng-template #blockIsLogged>
+		<form (ngSubmit)="onsubmit()">
+			<table id="cart" class="table table-hover table-condensed">
+				<tbody>
+					<div *ngFor="let product of myCart?.products; index as i">
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-2"><img src="" alt="..." class="img-responsive"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">{{product.name}}</h4>
 										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">Prix: {{product.price}}</td>
+							<td data-th="Price">
+								Prix: {{product.price}}
+							</td>
 							<td data-th="Quantity">
-								<input type="number" [ngModel]="product?.qte" (ngModelChange)="product.qte = $event" name="product.qte" (change)="refreshTotal()" class="form-control text-center" value={{product.qte}}> 
+								<input type="number" [ngModel]="product?.qte" (ngModelChange)="product.qte = $event" name="qte{{i}}" (change)="refreshTotal()" class="form-control text-center" value={{product.qte}}> 
 							</td>
 							<td data-th="Subtotal" class="text-center">Total: {{product.price*product.qte}}</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm " (click)="deleteProductOfCart(product, cart)"><i class="fa fa-trash-o"></i></button>								
+								<button class="btn btn-danger btn-sm " (click)="deleteProductOfCart(product, cart)"><i class="fa fa-trash-o"></i>X</button>								
 							</td>
-                        </tr>
-                    </div>
-					</tbody>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total {{myCart?.total_price}}</strong></td>
 						</tr>
-						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue le Shopping</a></td>
-							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center" ><strong>total prix: {{myCart?.total_price}}</strong></td>
-							<td><a href="#" type="submit" id="submit" value="Submit" class="btn btn-success btn-block" [routerLink]="['/payments']">Validée <i class="fa fa-angle-right"></i></a></td>
-                        </tr>
-						
-					</tfoot>
-				</table>
-			</form>
+					</div>
+				</tbody>
+				<tfoot>
+					<tr class="visible-xs">
+						<td class="text-center"><strong>Total {{myCart?.total_price}}</strong></td>
+					</tr>
+					<tr>
+						<td><a routerLink="/home" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue le Shopping</a></td>
+						<td colspan="2" class="hidden-xs"></td>
+						<td class="hidden-xs text-center" ><strong>total prix: {{myCart?.total_price}}</strong></td>
+						<td><a type="submit" id="submit" value="Submit" class="btn btn-success btn-block" [routerLink]="['/payments']">Validée <i class="fa fa-angle-right"></i></a></td>
+					</tr>
+					
+				</tfoot>
+			</table>
+		</form>
+	</ng-template>
+	<ng-template #blockNotLogged class="text-center">
+		<p></p>
+		<p>Votre panier est actuellement vide.</p>
+		<p>Merci de vous connecter pour commencer vos achats.</p>
+	</ng-template>
 </div>

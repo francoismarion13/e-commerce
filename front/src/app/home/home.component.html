@@ -52,7 +52,7 @@
                       <div *ngIf="isLogged; then blockLogged else blockNoLogged"></div>
                       <ng-template #blockLogged>
                         <div class="card-footer">
-                          <a routerLink="/shoppingCart"><button type="button" class="btn btn-primary">  <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button></a>
+                          <a routerLink="/shoppingCart/{{cartId}}"><button type="button" class="btn btn-primary" (click)="addToCart(product)"> <i class='fas fa-shopping-cart' style='font-size:15px'></i> add</button></a>
                           <small class="text-muted" > &#9733; &#9733; &#9733; &#9733; &#9734;</small>
                         </div>
                       </ng-template>
