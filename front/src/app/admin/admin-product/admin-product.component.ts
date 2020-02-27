@@ -19,10 +19,8 @@ export class AdminProductComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-   // console.log(this.id);
     this.Ps.getProductById(this.id).subscribe(data => {
       this.product = data; 
-     // console.log(this.product);
     });
   }
 

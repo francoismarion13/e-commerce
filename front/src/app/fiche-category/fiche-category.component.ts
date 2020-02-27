@@ -39,10 +39,6 @@ export class FicheCategoryComponent implements OnInit {
         this.tabProcts = this.category.products;
         this.tabProctssort = this.category.products;
         this.affichage = this.tabProcts;
-        console.log(this.category.products.images);
-       /*  this.intialise("plagePrix");
-        this.intialise("taille");
-        this.intialise("sort"); */
       });
     });
    }
@@ -77,7 +73,6 @@ export class FicheCategoryComponent implements OnInit {
       );
     }  
     this.affichage = this.tabProctssort;
-    console.log(this.tabProctssort)
     
     return this.affichage;
   }
@@ -93,7 +88,6 @@ export class FicheCategoryComponent implements OnInit {
   }
 
   radioChangeHandler(evt){
-    //console.log(evt.target.value)
     this.radioValue = evt.target.value
     this.prods = new Array();
       this.affichageSize = [];
@@ -166,7 +160,6 @@ export class FicheCategoryComponent implements OnInit {
 
   imageIndex(i){
     this.pS.imageIndex = i;
-    console.log(this.pS.imageIndex)
   }
  
   addToCart(Product){

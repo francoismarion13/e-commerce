@@ -15,7 +15,6 @@ router.get('/', async (req,res) => {
             admins = await admin.find(query);
         }else{
             admins = await admin.find();
-            console.log(admins);
         }
         res.status(200).json(admins);
     }catch(err){
@@ -46,7 +45,6 @@ router.post('/login', jsonParser, async (req,res) => {
             password: req.body.password });
         res.status(200).json(AdminProfile);
     }catch(err){
-        console.log("Admin not found")
         throw err;
     }
 });

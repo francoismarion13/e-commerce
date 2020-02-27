@@ -34,7 +34,6 @@ export class ShoppingCartComponent implements OnInit {
         })
       });
     }
-    console.log(this.myCart)
   }
 
   refreshTotal() {
@@ -46,12 +45,11 @@ export class ShoppingCartComponent implements OnInit {
     this.scS.deleteProductOfCart(product, this.myCart).subscribe(
       data => {
         this.myCart = new Cart(data)
-        console.log(this.myCart);
       }
     )
   }
   onsubmit(){
-    console.log("panier validé")
+    
   }
   
 }

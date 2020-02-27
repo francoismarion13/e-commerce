@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
 
   imageIndex(i){
     this.pS.imageIndex = i;
-    console.log(this.pS.imageIndex)
   }
 
   addToCart(Product){
