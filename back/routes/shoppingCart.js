@@ -56,4 +56,26 @@ router.put('/:cartid', jsonParser, async (req, res) => {
     }
 })
 
+router.post('/:cartid', jsonParser, async (req, res) => {
+    try {
+        let cart = await carts.findOneAndUpdate({ _id: req.params.cartid }, { $push: { products:  req.body  } }, { new: true })
+        res.status(200).send(cart);
+    } catch (err) {
+        throw err
+    }
+})
+
+// router.post('/qte/:cartid', jsonParser, async (req, res) => {
+//     try {
+//         let cart = await carts.findOneAndUpdate(
+//             {  _id: req.params.cartid }, 
+//             { $set: { products: { _id: req.body.myProduct.id, qte:  req.body.myProduct.qte } } }, 
+//             { new: true }
+//         )
+//         res.status(200).send(cart);
+//     } catch (err) {
+//         throw err
+//     }
+// })
+
 module.exports = router;

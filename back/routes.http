@@ -33,6 +33,17 @@ GET http://localhost:8080/
 /////////////////////////////////////////////////////////////
 GET http://localhost:8080/shoppingCart
 ################################
+POST http://localhost:8080/shoppingCart/5e54d8de19497674635df03e
+Content-Type: application/json
+
+{
+    "name": "Quo Lux",
+    "price": 7656021752,
+    "qte": 5,
+    "img": "",
+    "_id": "5e4d49d80a3d603d6e4fdce7"
+}
+################################
 GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8
 ################################
 DELETE http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8/product/5e4d49d80a3d603d6e4fdcdc

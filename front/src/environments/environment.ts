@@ -23,16 +23,11 @@ export const apiUrlAdmin = {
 
 //export var activeUser;
 export class sessionGlobalUser {
-  public static activeUser;
+  public static activeUser = null;
 }
 //export var activeCart;
 export class sessionGlobalCart {
-  public static activeCart;
-}
-
-//export var activeUser;
-export class sessionGlobalCart {
-  public static activeCart;
+  public static activeCart = null;
 }
 
 export class sessionGlobalAdmin {

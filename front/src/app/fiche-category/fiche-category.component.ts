@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryService } from '../services/category.service';
 import { ProductService } from '../services/product.service';
 import {FormsModule} from '@angular/forms';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-fiche-category',
@@ -26,7 +27,7 @@ export class FicheCategoryComponent implements OnInit {
  prodsPrice: String[];
  arrayNotEmpty : Boolean = false;
 
-  constructor(private cS: CategoryService, private route: ActivatedRoute, private pS: ProductService) {
+  constructor(private cS: CategoryService, private route: ActivatedRoute, private pS: ProductService, private scS: ShoppingCartService) {
     this.tabProctssort = new Array();
    
 
@@ -168,4 +169,7 @@ export class FicheCategoryComponent implements OnInit {
     console.log(this.pS.imageIndex)
   }
  
+  addToCart(Product){
+    this.scS.addProductToCart(Product);
+  }
 }
