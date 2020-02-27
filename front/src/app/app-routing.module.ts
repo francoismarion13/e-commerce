@@ -54,7 +54,13 @@ const routes: Routes = [
   },
   { path: 'userCreate', component: UserCreateComponent },
   { path: 'userConnect', component: UserConnectComponent},
-  { path: 'payments', component: PaymentsComponent }
+  { path: 'payments',
+  children: [
+    { path: '', component: PaymentsComponent },
+    { path: ':id', component: PaymentsComponent }
+  ]
+}
+
 
   // { path: 'edit', component: UserEditComponent},
   // { path: 'delete', component: UserDeleteComponent}

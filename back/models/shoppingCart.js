@@ -11,7 +11,7 @@ const ProductSchema = new Schema({
     _id: { type: ObjectId }
 })
 const cartSchema = new Schema({
-    id_user: { type: Number, required: true },
+    id_user: { type: ObjectId, required: true },
     is_validate: { type: Boolean, default: false },
     products: { type: [ProductSchema], required: true },
     total_price: Number,

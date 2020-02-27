@@ -36,6 +36,9 @@ GET http://localhost:8080/shoppingCart
 GET http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8
 ################################
 DELETE http://localhost:8080/shoppingCart/5e4fd53b72be020540614df8/product/5e4d49d80a3d603d6e4fdcdc
+#######################
+GET http://localhost:8080/shoppingCart/userCart/5e53fe0e0de25b30681b7372
+################################
 
 # db.getCollection("carts").deleteOne({}, { $pull: { products: { _id: "5e4d49d80a3d603d6e4fdcdc" } } }, {multi:true})
 ################################
@@ -91,6 +94,7 @@ Content-Type: application/json
     "password": "test"
 }
 ################################
+#####################################
 PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372
 Content-Type: application/json
 
@@ -118,3 +122,5 @@ Content-Type: application/json
 PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372/adresse/5e55496ff1e8c62f68e65474
 ################################
 PUT http://localhost:8080/users/5e53fe0e0de25b30681b7372/card/5e55496ff1e8c62f68e65476
+GET http://localhost:8080/payments/5e5534dd19497674635df154
+################################

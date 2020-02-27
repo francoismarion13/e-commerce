@@ -10,12 +10,12 @@ const mongoose = require('mongoose');
 //         throw err
 //     }
 // })
-router.get('/', async function (req, res) {
+router.get('/:id', async function (req, res) {
     try {
-        let paymentsAll = await payments.find();
+        let paymentsAll = await payments.findOne({_id: req.params.id});
         res.json(paymentsAll);
-    } catch (payments) {
-        throw payments;
+    } catch (err) {
+        throw err;
     }
 })
 

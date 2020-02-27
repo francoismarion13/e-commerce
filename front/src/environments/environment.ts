@@ -13,7 +13,8 @@ export const apiUrl = {
   users: host + 'users',
   admins: host + 'admins',
   sortAlphabetically: host + 'products/sort',
-  sortPrice: host + 'products/sortPrice'
+  sortPrice: host + 'products/sortPrice',
+  payments: host + 'payments'
 };
 
 export const apiUrlAdmin = {
@@ -21,8 +22,12 @@ export const apiUrlAdmin = {
 };
 
 //export var activeUser;
-export class sessionGlobal {
+export class sessionGlobalUser {
   public static activeUser;
+}
+//export var activeCart;
+export class sessionGlobalCart {
+  public static activeCart;
 }
 
 export class sessionGlobalAdmin {
