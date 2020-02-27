@@ -25,7 +25,13 @@ export class HomeComponent implements OnInit {
     this.pS.getProductHome().subscribe(data => {this.productsHome = data; });
 
     this.cS.getCategory().subscribe(data => {this.categorys = data; });
+    
 
+  }
+
+  imageIndex(i){
+    this.pS.imageIndex = i;
+    console.log(this.pS.imageIndex)
   }
 
 

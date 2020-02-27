@@ -11,6 +11,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,7 +48,8 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminAuthComponent },
       { path: 'adminHome', component: AdminHomeComponent },
-      { path: 'listProduct', component: ListProductComponent }
+      { path: 'listProduct', component: ListProductComponent },
+      { path: 'adminProduct/:id', component: AdminProductComponent }
     ]
   },
   { path: 'userCreate', component: UserCreateComponent },

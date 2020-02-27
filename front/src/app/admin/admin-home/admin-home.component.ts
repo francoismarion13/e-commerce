@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrincipaleService } from '../adminServices/principale.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private principale: PrincipaleService) { }
 
   ngOnInit() {
+    this.principale.pageAdminActive='adminHome';
   }
 
 }

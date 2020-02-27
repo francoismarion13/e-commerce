@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
+  imageIndex:number=1;
+
   constructor(private Product:Product, private http: HttpClient) { }
 
   getProduct(){

@@ -22,9 +22,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { UserConnectComponent } from './user-connect/user-connect.component';
 import { PaymentsComponent } from './payments/payments.component';
+
 import { AdminAuthComponent } from './admin/admin-auth/admin-auth.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ListProductComponent } from './admin/list-product/list-product.componen
     PaymentsComponent,
     AdminAuthComponent,
     AdminHomeComponent,
-    ListProductComponent
+    ListProductComponent,
+    AdminProductComponent
   ],
   imports: [
     BrowserModule,
