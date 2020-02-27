@@ -17,7 +17,7 @@
             <div class="list-group-item">
                 <h4 class="list-group-item-heading">Trier Par: </h4>
                 <p class="list-group-item-text">
-                  <select id="sort" name="sort" class="form-control selcls" [(ngModel)]="sort" (change)="this.onChange($event.target.value)">
+                  <select id="sort" name="sort" class="form-control selcls" (change)="this.onChange($event.target.value)">
                     <option value="" disabled selected> --choisir--</option>
                     <option value="alphabetical"> Nom</option>
                     <option value="price"> Prix</option>
@@ -102,7 +102,7 @@
           
         <br />
 
-        <div *ngIf="affichage?.length == 0; else elseBlock">
+        <div *ngIf="affichage?.length == 0;">
           <div class="alert alert-danger" role="alert">
             pas de produits dans cette sélection
           </div>
