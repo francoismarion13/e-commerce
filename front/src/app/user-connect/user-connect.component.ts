@@ -32,7 +32,8 @@ export class UserConnectComponent implements OnInit {
       this.scS.getCartByIdUser(this.loggedUser._id).subscribe(data => {
         sessionGlobalCart.activeCart = data;
       })
-      this.loggedUser != null ? this.uS.isLogged = true : this.uS.isLogged = false;
+     // this.loggedUser != null ? this.uS.isLogged = true : this.uS.isLogged = false;
+
       this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id]);
     })
   }
