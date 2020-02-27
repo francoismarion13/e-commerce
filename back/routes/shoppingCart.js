@@ -48,7 +48,6 @@ router.get('/userCart/:id', async function (req, res) {
 
 router.put('/:cartid', jsonParser, async (req, res) => {
     try {
-        console.log(req.body._id)
         let cart = await carts.findOneAndUpdate({ _id: req.params.cartid }, { $pull: { products: { _id: req.body._id } } }, { new: true })
         res.status(200).send(cart);
     } catch (err) {

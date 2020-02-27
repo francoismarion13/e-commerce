@@ -22,12 +22,8 @@ _id;
 
       this.uS.getPaymentsById(this._id).subscribe(data => {
         this.payments = data
-        console.log(data)
-
-  })
+      })
     });
-
-
   }
     submit() {
 

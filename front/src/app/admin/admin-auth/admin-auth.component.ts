@@ -24,14 +24,11 @@ export class AdminAuthComponent implements OnInit {
   login(e) {
     e.preventDefault();
     this.aS.getAdmins().subscribe((data : any[]) => {
-      console.log(data);
       data.forEach((u) => {
         if (u.username === this.username) {
           if (u.password === this.password) {
             this.aS.isAuthAdmin = true;
           }
-        } else {
-          console.log('username or password incorrect');
         }
         if (this.aS.isAuthAdmin) {
           this.routes.navigate(['/admin/adminHome']);

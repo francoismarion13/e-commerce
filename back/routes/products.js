@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
       } else {
         productList = await products.find();
       }
-      console.log('requête get reçue')
       res.json(productList);
     } catch (err) { throw err }
   })
@@ -46,10 +45,8 @@ router.get('/', async (req, res) => {
     try {
         let product = await products.find({}, null, {sort: {name: 1}}, function(err, prods){
           if(err){
-            console.log(err);
             process.exit(1);
           }
-          console.log(prods);
         });
         res.json(product);
       } catch (err) { throw err; }
@@ -61,10 +58,8 @@ router.get('/', async (req, res) => {
     try {
         let product = await products.find({}, null, {sort: {price: 1}}, function(err, prods){
           if(err){
-            console.log(err);
             process.exit(1);
           }
-          console.log(prods);
         });
         res.json(product);
       } catch (err) { throw err; }
