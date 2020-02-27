@@ -28,6 +28,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { FourOFourComponent } from './four-o-four/four-o-four.component';
+import { AcceptedComponent } from './accepted/accepted.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FourOFourComponent } from './four-o-four/four-o-four.component';
     AdminHomeComponent,
     ListProductComponent,
     AdminProductComponent,
-    FourOFourComponent
+    FourOFourComponent,
+    AcceptedComponent
   ],
   imports: [
     BrowserModule,

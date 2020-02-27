@@ -15,6 +15,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { FourOFourComponent } from './four-o-four/four-o-four.component';
 import { AdminAuthGuard } from './services/guards/admin-auth.guard';
 import { UserAuthGuard } from './services/guards/user-auth.guard';
+import { AcceptedComponent } from './accepted/accepted.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -60,7 +61,7 @@ const routes: Routes = [
   { path: 'payments',
   children: [
     { path: '', component: PaymentsComponent },
-    { path: ':id', component: PaymentsComponent }
+    { path: 'accepted', component: AcceptedComponent }
   ]
 },
 

@@ -16,7 +16,7 @@ export class UserConnectComponent implements OnInit {
   username;
   password;
   userId;
-  //isLogged: boolean;
+  isLogged: boolean;
 
   constructor(private uS: UserServiceService, private scS: ShoppingCartService, private routes: Router) { }
 

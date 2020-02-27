@@ -14,7 +14,8 @@ export const apiUrl = {
   admins: host + 'admins',
   sortAlphabetically: host + 'products/sort',
   sortPrice: host + 'products/sortPrice',
-  payments: host + 'payments'
+  payments: host + 'payments',
+  accepted: host + 'payments/accepted'
 };
 
 export const apiUrlAdmin = {
