@@ -12,7 +12,7 @@ export class UserAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.uS.userIsLogged){
+      if(this.uS.isLogged){
         return true;
       }else{
         this.router.navigate(['/'])

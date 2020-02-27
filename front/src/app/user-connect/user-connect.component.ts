@@ -35,7 +35,6 @@ export class UserConnectComponent implements OnInit {
         console.log(sessionGlobalCart.activeCart);
       })
       this.loggedUser != null ? this.uS.isLogged = true : this.uS.isLogged = false;
-
       this.routes.navigate(['/userProfile/'+(sessionGlobalUser.activeUser)._id]);
     })
   }

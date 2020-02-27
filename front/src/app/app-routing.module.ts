@@ -43,8 +43,8 @@ const routes: Routes = [
   },
   { path: 'userProfile',
     children: [
-      { path: '', canActivate:[UserAuthGuard], component: UserProfileComponent },
-      { path: ':id', canActivate:[UserAuthGuard], component: UserProfileComponent }
+       { path: '', canActivate:[UserAuthGuard], component: UserProfileComponent },
+       { path: ':id', canActivate:[UserAuthGuard], component: UserProfileComponent }
     ]
   },
   { path: 'userCreate', component: UserCreateComponent },
