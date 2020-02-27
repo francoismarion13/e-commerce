@@ -37,7 +37,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   refreshTotal() {
-    //this.scS.majQteInBase(cartId, product, qte);
     this.myCart.calculateTotalPrice();
   };
 

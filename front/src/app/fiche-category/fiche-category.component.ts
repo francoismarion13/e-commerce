@@ -48,8 +48,6 @@ export class FicheCategoryComponent implements OnInit {
   }
 
   onChange(deviceValue) {
-    /* this.intialise("plagePrix");
-    this.intialise("taille"); */
     this.affichage = [];
     
     if(deviceValue === 'alphabetical'){
@@ -83,7 +81,6 @@ export class FicheCategoryComponent implements OnInit {
 
 
   onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
     this.affichage = pageOfItems;
   }
 
@@ -91,11 +88,6 @@ export class FicheCategoryComponent implements OnInit {
     this.radioValue = evt.target.value
     this.prods = new Array();
       this.affichageSize = [];
-
-      /* if(this.affichagePrice.length > 0 ) {
-        this.tabProcts = [];
-        this.tabProcts = this.affichagePrice;
-      } */
     
       this.tabProcts.forEach((u)=>{
         if(u.size === this.radioValue){
@@ -115,9 +107,6 @@ export class FicheCategoryComponent implements OnInit {
 
     this.prodsPrice = new Array();
     this.prodsPrice = [];
-    /* if(this.affichage.length > 0 ) {
-      this.affichage = [];
-    } */
     
     if(this.affichageSize.length > 0 ) {
       this.tabProcts = [];
